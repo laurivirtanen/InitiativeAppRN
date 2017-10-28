@@ -143,10 +143,6 @@ class Home extends Component {
   } 
 }
 
-const mockItem = { name: "test", mod: "0", adv: "normal", isPC: true};
-
-
- 
 const mapStateToProps = (state) => {
   return {
     initiates: state.initiates
