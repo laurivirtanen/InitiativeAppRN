@@ -6,26 +6,27 @@ import {
   TouchableNativeFeedback,
   TouchableOpacity
 } from 'react-native'
-
+import { styles } from '../styles/styles';
 export default class Header extends Component {
   render() {
     return (
-      <View style={{height: 60, flexDirection: "row", justifyContent: "space-between", borderStyle: "solid", borderWidth: 1}}>
-        <TouchableNativeFeedback 
+      <View style={ styles.headerContainer }>
+        <TouchableNativeFeedback
           useForeground
           background={TouchableNativeFeedback.Ripple('white')}
           onPress={() => this.props.drawer.openDrawer()}>
-          <View style={{width: 60, margin: 8, borderWidth: 1, borderStyle: "solid", backgroundColor: 'red'}}>
-            <Text>Moi</Text>
+          <View style={styles.headerButton}>
+            <Text style={styles.headerButtonText}>List</Text>
           </View>
-          
+
         </TouchableNativeFeedback>
+        <Text style={ styles.headerButtonText }>D&D Tracker </Text>
         <TouchableNativeFeedback
-          useForeground 
+          useForeground
           background={TouchableNativeFeedback.Ripple('white')}
           onPress={() => this.props.save()} >
-          <View style={{width: 60, margin: 8, borderWidth: 1, borderStyle: "solid", backgroundColor: 'red'}}>
-            <Text>Moi</Text>
+          <View style={styles.headerButton}>
+            <Text style={styles.headerButtonText}>+</Text>
           </View>
         </TouchableNativeFeedback>
       </View>

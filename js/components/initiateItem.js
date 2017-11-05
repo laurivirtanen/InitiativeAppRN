@@ -1,52 +1,50 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { 
+import {
   TouchableOpacity,
   View,
   Text,
-  StyleSheet
+  Image,
 } from 'react-native';
 import { UPDATE_INITIATE, REMOVE_INITIATE } from '../actions/initiates';
+import { styles } from '../styles/styles';
 
-
-const InitiateItem = (props) => {  
+const InitiateItem = (props) => {
   const { initiate, dispatch } = props;
   return (
     <View key={props.key}>
-      <View style={{
-        flexDirection: "row",
-        justifyContent: "space-around",
-        borderWidth: 1, 
-        borderStyle: "solid",
-        borderBottomWidth: initiate.showDetail? 0 : 1, 
-        }}>
+      <View style={styles.listContainer}>
+        <Image
+          style={styles.initiateImage}
+          source={{uri: 'http://student.labranet.jamk.fi/~K8455/i1.png'}}
+        />
         <TouchableOpacity
-          onPress={() => 
+          onPress={() =>
             dispatch(
               UPDATE_INITIATE(initiate.id, {showDetail: !initiate.showDetail})
             )}>
-          <View >
-            <Text>{initiate.name}</Text>
+
+          <View style={ styles.initiateName } >
+            <Text style={{textAlign: 'center'}}>{initiate.name}</Text>
           </View>
         </TouchableOpacity>
-        <Text style={{backgroundColor: 'blue', height: 30, width: 30}}>{props.initiative}</Text>
+        <Text style={styles.initiateRoll}>{props.initiative}</Text>
       </View>
-      <View style={{display: initiate.showDetail? "flex" : "none", 
-          flexDirection: 'row', 
-          borderWidth: 1, 
-          borderStyle: "solid",
-          borderTopWidth: 0,
-          justifyContent: "space-between"
-        }}>
-        <TouchableOpacity
-          onPress={() => dispatch(REMOVE_INITIATE(initiate.id))}>
-          <Text>Kill</Text>
-        </TouchableOpacity>
-        
+      <View style={  styles.initiateDropdown, { display: initiate.showDetail? "flex" : "none"}
+        }>
+        <View style={ styles.initiateKill }>
+          <TouchableOpacity
+            onPress={() => dispatch(REMOVE_INITIATE(initiate.id))}>
+            {/* TODO change initiateTextKill to icon what represents Killing the creature */}
+            <Image
+              style={styles.initiateImage}
+              source={{uri: 'http://student.labranet.jamk.fi/~K8455/iKill.png'}}
+            />
+          </TouchableOpacity>
+        </View>
         <Text>{initiate.adv}</Text>
-      
       </View>
-    
+
     </View>
   );
 }
@@ -54,4 +52,4 @@ const InitiateItem = (props) => {
 
 
 
-export default connect()(InitiateItem); 
+export default connect()(InitiateItem);
