@@ -64,4 +64,46 @@ export const styles = StyleSheet.create({
       textAlign: 'center',
       textAlignVertical: 'center',
     },
+
+
+    //MODAL STYLES
+    modalBase:{
+      flex:1,
+      backgroundColor:"#00000090",
+    },
+    modalContainer:{
+      backgroundColor: "#fff",
+      borderRadius: 8, 
+      height: 300, 
+      margin: 16, 
+      padding: 16,
+    },
+    modalTextInput:{
+      flex:4,
+    },
+    modalNumberInput:{
+      flex: 1,
+    },
+    modalRadioContainer:{
+      display:'flex',
+      alignContent:'center',
+    },
+
+    modalAddCharacter:{
+      flexDirection:'row',
+      marginTop:20,
+    },
+    modalAddButton:{ 
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderWidth: 1, 
+      flex: 2, 
+      height: 40, 
+    }
+
+
+
+
+
+
 })

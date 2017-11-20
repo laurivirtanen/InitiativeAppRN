@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, StyleSheet } from 'react-native'
 import RadioButtonGroup from './radio-buttons'
+import { styles } from '../styles/styles'
 /*
 Notice the weird usage of TouchableWithoutFeedback elements,
 this is done to accomplish the click-outside-modal-to-close.
@@ -48,25 +49,28 @@ class AddModal extends Component {
         <TouchableWithoutFeedback 
           style={{backgroundColor: "#00000060"}}
           onPress={() => this.props.toggleVisibility()}>
-          <View style={{flex: 1,backgroundColor: "#00000090"}}>
+          <View style={styles.modalBase}>
             <TouchableWithoutFeedback onPress={() => {}}>
-              <View style={{backgroundColor: "#fff", borderRadius: 8, height: 300, margin: 16, padding: 16}}>
+              <View style={styles.modalContainer}>
                 <Text>Add new character</Text>
                 <View style={{flexDirection: "row"}} >
                   <TextInput 
-                    style={{flex: 4}} 
+                    style={styles.modalTextInput} 
                     autoCorrect={false} 
                     autoCapitalize="words"
-                    onChangeText={(value) => this.setState({name: value})} 
+                    onChangeText={(value) => this.setState({name: value})}
                     placeholder="Character Name" />
                   <TextInput 
-                    style={{flex: 1}} 
+                    style={styles.modalNumberInput} 
                     keyboardType="numeric" 
                     onChangeText={(value) => this.setState({mod: Number(value)})} 
                     placeholder="Mod" />
                 </View>
-                <RadioButtonGroup buttonNames={buttons} callback={this.selectAdvMode} default={1} />
-                <RadioButtonGroup buttonNames={["Player", "Monster"]} callback={() => {}} />
+                <View style={styles.modalRadioContainer}>
+                  <RadioButtonGroup buttonNames={buttons} callback={this.selectAdvMode} default={1} />
+                  <RadioButtonGroup buttonNames={["Player", "Monster"]} callback={() => {}} />
+                  
+                </View>
                 {/*<View style={{flexDirection: "row"}} >
                   <TouchableNativeFeedback
                     onPressOut={this.selectAdvMode}
@@ -76,6 +80,24 @@ class AddModal extends Component {
                     <View style={{backgroundColor: "#f00", flex: 1}} ><Text>Nappi</Text></View>
                     
                 </View>*/}
+                <View style={styles.modalAddCharacter}>
+                <TouchableNativeFeedback
+                    background={TouchableNativeFeedback.SelectableBackground()}>
+                
+                <View style={styles.modalAddButton}
+                >
+                  <Text>Add Character</Text>
+                  </View>
+                </TouchableNativeFeedback>
+                <TouchableNativeFeedback
+                 >
+                  <View
+                      style={styles.modalAddButton}
+                  >
+                  <Text>Cancel</Text>
+                  </View>
+                </TouchableNativeFeedback>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

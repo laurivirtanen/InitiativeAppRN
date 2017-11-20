@@ -42,10 +42,22 @@ export default class RadioButtonGroup extends Component {
 const styles = StyleSheet.create({
 button: {
     backgroundColor: "#f00",
+    borderWidth: 1,
+    height: 50,
+    marginBottom: 8,
+    marginTop: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: 1
 },
 chosen: {
     backgroundColor: "#ff0",
+    height: 50,
+    marginBottom: 8,
+    marginTop: 8,
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: 1
 }
 });
