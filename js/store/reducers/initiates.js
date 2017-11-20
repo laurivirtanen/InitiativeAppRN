@@ -34,6 +34,10 @@ export default (state = [], action) => {
           return item;
       }
       // Otherwise, this is the one we want - return an updated value
+      console.log({
+        ...item,
+        ...action.item
+      });
       return {
           ...item,
           ...action.item

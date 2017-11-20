@@ -41,8 +41,9 @@ export const styles = StyleSheet.create({
     backgroundColor: 'hotpink',
     borderStyle: "solid",
     borderTopWidth: 0,
-    justifyContent: "space-between"
-    //alignItems: 'center'
+    justifyContent: "space-between",
+    alignItems: 'center',
+    padding: 2
   },
     // List Printing
 
