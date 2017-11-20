@@ -33,9 +33,17 @@ const InitiateItem = (props) => {
             <View style={ styles.initiateName } >
               <Text style={{textAlign: 'center'}}>{initiate.name}</Text>
             </View>
-          
-          <Text style={styles.initiateRoll}>{props.initiative}</Text>
-          
+
+            <View style={styles.initiateRoll}>
+              <TouchableOpacity
+              >
+              <TextInput
+              maxLength={2}
+              multiline={false}
+              
+               keyboardType='numeric' >{props.initiative}</TextInput>
+              </TouchableOpacity>
+          </View>
         </View>
       </TouchableOpacity>
       <View style={[styles.initiateDropdown, { display: initiate.showDetail? "flex" : "none"}]}>

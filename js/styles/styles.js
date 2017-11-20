@@ -33,7 +33,10 @@ export const styles = StyleSheet.create({
   initiateRoll: {
     backgroundColor: '#FFD600',
     width: 50,
+    justifyContent:'center',
+    alignItems:'center',
     margin: 'auto',
+    fontSize: 15,
   },
   initiateDropdown: {
     flexDirection: 'row',
@@ -65,6 +68,31 @@ export const styles = StyleSheet.create({
       textAlign: 'center',
       textAlignVertical: 'center',
     },
+
+
+    //RADIOBUTTONS
+    radioButton: {
+      backgroundColor: "#f00",
+      borderWidth: 1,
+      height: 50,
+      marginBottom: 8,
+      marginTop: 8,
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1
+    },
+    radioChosen: {
+      backgroundColor: "#ff0",
+      height: 50,
+      marginBottom: 8,
+      marginTop: 8,
+      borderWidth: 2,
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1
+    },
+    //RADIOBUTTONS
+
 
 
     //MODAL STYLES

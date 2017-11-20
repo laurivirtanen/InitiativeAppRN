@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import {
     View,
     Text,
-    TouchableWithoutFeedback,
-    StyleSheet
+    TouchableWithoutFeedback
 } from 'react-native'
+
+import { styles } from '../styles/styles'
 
 export default class RadioButtonGroup extends Component {
     /***********
@@ -30,7 +31,7 @@ export default class RadioButtonGroup extends Component {
               <TouchableWithoutFeedback
                 key={index}
                 onPressOut={this.handleSelectionChange.bind(null, index)}>
-              <View style={index === this.state.chosen ? styles.chosen : styles.button}><Text>{button}</Text></View>
+              <View style={index === this.state.chosen ? styles.radioChosen : styles.radioButton}><Text>{button}</Text></View>
               </TouchableWithoutFeedback>
             );
           })}
@@ -39,26 +40,4 @@ export default class RadioButtonGroup extends Component {
     }
 }
   
-const styles = StyleSheet.create({
-button: {
-    backgroundColor: "#f00",
-    borderWidth: 1,
-    height: 50,
-    marginBottom: 8,
-    marginTop: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1
-},
-chosen: {
-    backgroundColor: "#ff0",
-    height: 50,
-    marginBottom: 8,
-    marginTop: 8,
-    borderWidth: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1
-}
-});
   
