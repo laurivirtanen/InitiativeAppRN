@@ -84,6 +84,7 @@ export const styles = StyleSheet.create({
     },
     modalNumberInput:{
       flex: 1,
+      textAlign: 'center'
     },
     modalRadioContainer:{
       display:'flex',
