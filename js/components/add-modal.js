@@ -60,6 +60,7 @@ class AddModal extends Component {
   }
 
   showFeedback = () => {
+    console.log(this.props.monsters);
     console.log("FEEDBACK!!!");
   }
   exitModal = () => {
@@ -132,4 +133,10 @@ class AddModal extends Component {
   }
 }
 
-export default connect()(AddModal);
+const mapStateToProps = (state) => {
+  return {
+    monsters: state.monsters
+  }
+};
+
+export default connect(mapStateToProps)(AddModal);

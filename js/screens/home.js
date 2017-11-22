@@ -41,6 +41,18 @@ class Home extends Component {
     this.props.dispatch({
       type: "LOAD_MOCKDATA"
     });
+    fetch("http://jani-test.azurewebsites.net/getmonsters", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((response) => {
+      let monsters = JSON.parse(response._bodyText);
+      console.log(monsters);
+      this.props.dispatch(
+        Actions.LOAD_MONSTERS(monsters)
+      );
+    }).catch(err => console.log(err));
   }
   
   sortInitiates = (arr) => {

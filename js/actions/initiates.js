@@ -33,3 +33,10 @@ export function SAVE_STATE_TO_JSON() {
     type: "SAVE_STATE_TO_JSON"
   };
 } 
+
+export function LOAD_MONSTERS(item) {
+  return {
+    type: "LOAD_MONSTERS",
+    monsters: item
+  };
+}
