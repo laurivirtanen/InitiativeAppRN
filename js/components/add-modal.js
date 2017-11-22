@@ -15,7 +15,27 @@ class AddModal extends Component {
     name: '',
     adv: 'normal',
     mod: 0,
-    isPC: null
+    isPC: null,
+    showFeedback: false
+  }
+
+  prepareDataForSaving = () => {
+    if (!!this.state.name && this.state.isPC != null) {
+      this.props.dispatch(
+        ADD_INITIATE({
+          name: this.state.name,
+          adv: this.state.adv,
+          mod: this.state.mod,
+          isPC: this.state.isPC
+        })
+      );
+      this.setState({
+        name: '',
+        adv: 'normal',
+        mod: 0,
+        isPC: null
+      }, this.showFeedback);
+    }
   }
 
   selectAdvMode = (index) => {

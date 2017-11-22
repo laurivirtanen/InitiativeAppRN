@@ -46,6 +46,8 @@ export default (state = [], action) => {
     });
   case "ROLL_INITIATIVES":
     return state.map((item) => {
+      // Close panel
+      item.showDetail = false;
       // Roll the dice
       let roll1 = RollD20();
       let roll2 = RollD20();
