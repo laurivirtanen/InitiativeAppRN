@@ -15,11 +15,12 @@ import {
   AdMobBanner
 } from 'react-native-admob';
 import { connect } from 'react-redux';
-import AddModal from '../components/add-modal';
+
 import InitiateItem from '../components/initiateItem';
-import Header from '../components/header'
+
 import * as Actions from '../actions/initiates';
 import { RollD20 } from '../functions/functions';
+import Drawer from '../components/drawer';
 
 /* Delegating functions to header in React Navigation
 
@@ -68,30 +69,27 @@ class Home extends Component {
 
   toggleModalVisibility = () => {
     console.log("Firing");
+    console.log(this.state.showModal);
     this.setState({showModal: !this.state.showModal});
   }
 
   render() {
-    const drawerView = (
+   /*  const drawerView = (
       <View style={{
         flex: 1,
         backgroundColor: "#ff0000" }}>
         <Text>I'm in the drawer!</Text>
       </View>
-    );
+    ); */
     //console.log([...this.props.initiates.init]);
     const sortedInitiates = this.sortInitiates([...this.props.initiates]);
  
+    /* <AddModal showModal={this.state.showModal} toggleVisibility={this.toggleModalVisibility} />
+    <Header drawer={this.drawer} save={this.toggleModalVisibility} />
+    */
     return(
-      <DrawerLayoutAndroid
-        ref={(drawer) => this.drawer = drawer}
-        drawerWidth={200}
-        drawerPosition={DrawerLayoutAndroid.positions.Left}
-        renderNavigationView={() => drawerView}>
-        <AddModal showModal={this.state.showModal} toggleVisibility={this.toggleModalVisibility} />
-        {/* HEADER */}
-        <Header drawer={this.drawer} save={this.toggleModalVisibility} />
-        {/* /HEADER */}
+      <Drawer showModal={this.state.showModal} toggleModalVisibility={this.toggleModalVisibility}>
+        
         <View style={{flex: 1, flexDirection: "row"}}>
           
         
@@ -128,7 +126,7 @@ class Home extends Component {
           testDevices={[AdMobBanner.simulatorId]}
           onAdFailedToLoad={error => console.error(error)} />
         </View>
-      </DrawerLayoutAndroid>
+      </Drawer>
     );
   } 
 }

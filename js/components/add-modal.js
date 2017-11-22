@@ -16,7 +16,7 @@ class AddModal extends Component {
   state = {
     name: '',
     adv: 'normal',
-    mod: 0,
+    mod: null,
     isPC: null,
     showFeedback: false
   }
@@ -34,7 +34,7 @@ class AddModal extends Component {
       this.setState({
         name: '',
         adv: 'normal',
-        mod: 0,
+        mod: null,
         isPC: null
       }, this.showFeedback);
     }
@@ -66,20 +66,19 @@ class AddModal extends Component {
     this.setState({
       name: '',
       adv: 'normal',
-      mod: 0,
+      mod: null,
       isPC: null
     }, this.props.toggleVisibility());
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.props.showModal);
     return (
       <Modal
         animationType="fade"
         transparent={true}
         visible={this.props.showModal}
-        onRequestClose={() => this.exitModal()}
-      >
+        onRequestClose={() => this.exitModal()} >
         <TouchableWithoutFeedback
           style={{ backgroundColor: "#00000060" }}
           onPress={() => this.props.toggleVisibility()}>
@@ -98,7 +97,7 @@ class AddModal extends Component {
                     placeholder="Character Name" />
                   <TextInput
                     style={styles.modalNumberInput}
-                    value={this.state.mod.toString()}
+                    defaultValue={!!this.state.mod? this.state.mod.toString() : ''}
                     keyboardType="numeric"
                     onEndEditing={(event) => this.setState({ mod: Number(event.nativeEvent.text) })}
                     placeholder="Mod" />
@@ -106,7 +105,6 @@ class AddModal extends Component {
                 <View style={styles.modalRadioContainer}>
                   <RadioButtonGroup buttonNames={buttons} callback={this.selectAdvMode} default={1} />
                   <RadioButtonGroup buttonNames={["Player", "Monster"]} default={this.state.isPC} callback={this.isPCChange} />
-
                 </View>
 
                 <View style={styles.modalAddCharacter}>
@@ -119,11 +117,9 @@ class AddModal extends Component {
                   </TouchableNativeFeedback>
                   <TouchableNativeFeedback
                     background={TouchableNativeFeedback.SelectableBackground()}
-                    onPressOut={this.exitModal}
-                  >
+                    onPressOut={this.exitModal} >
                     <View
-                      style={styles.modalAddButton}
-                    >
+                      style={styles.modalAddButton} >
                       <Text>Cancel</Text>
                     </View>
                   </TouchableNativeFeedback>
