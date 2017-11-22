@@ -19,7 +19,8 @@ class AddModal extends Component {
     adv: 'normal',
     mod: null,
     isPC: null,
-    showFeedback: false
+    showFeedback: false,
+    showSuggestions: false
   }
 
   prepareDataForSaving = () => {
@@ -61,7 +62,6 @@ class AddModal extends Component {
   }
 
   showFeedback = () => {
-    console.log(this.props.monsters);
     console.log("FEEDBACK!!!");
   }
   exitModal = () => {
@@ -75,16 +75,33 @@ class AddModal extends Component {
 
   _filterData = (query) => {
     let returnData = [];
-    this.props.monsters.map(item => {
-      if(item.name.includes(query)){
-        returnData.push(item.name);
-      }
-      
-    });
-    console.log(returnData);
+    if (query.length > 2) {
+      this.props.monsters.map((item, index)=> {
+        if(item.name.toLowerCase().includes(query.toLowerCase())){
+          let obj = {index: index, name: item.name};
+          returnData.push(obj);
+        }
+      });
+    }
+    
+    if (returnData.length == 1 && returnData[0].name === query) {
+      //console.log(returnData[0].name);
+      return [];
+    }
     return returnData;
-
-  } 
+  }
+  
+  selectFromMonsters = (index) => {
+    let monster = this.props.monsters[index];
+    console.log(monster);
+    this.setState({
+      name: monster.name,
+      adv: monster.adv,
+      mod: monster.mod,
+      isPC: monster.isPC,
+      showSuggestions: false
+    });
+  }
 
   render() {
     const data = this._filterData(this.state.name);
@@ -102,24 +119,34 @@ class AddModal extends Component {
               <View style={styles.modalContainer}>
                 <Text>Add new character</Text>
                 <View style={{ flexDirection: "row"}} >
-                  <Autocomplete
-                  containerStyle={{
-                      flex: 1,
-                      left: 0,
-                      position: 'absolute',
-                      right: 0,
-                      top: 0,
-                      zIndex: 144
-                  }}
-                  data={data}
-                  defaultValue={this.state.name}
-                  onChangeText={text => this.setState({ name: text })}
-                  renderItem={data => (
-                      <View style={{backgroundColor:'black'}}>
-                        <Text>{data}</Text>
-                      </View>
-              
-                  )} />
+                  <View style={{flex:5}}>
+                    <Autocomplete
+                      autoCapitalize="words"
+                      inputContainerStyle={styles.modalTextInputContainer}
+                      containerStyle={{
+                          flex: 4,
+                          left: 0,
+                          position: 'absolute',
+                          borderWidth: 0,
+                          right: 0,
+                          top: 9,
+                          zIndex: 144
+                      }}
+                      data={data}
+                      defaultValue={this.state.name}
+                      placeholder="Character Name"
+                      hideResults={!this.state.showSuggestions}
+                      onEndEditing={() => this.setState({showSuggestions: false})}
+                      onChangeText={text => this.setState({ name: text, showSuggestions: true })}
+                      renderItem={data => (
+                        <TouchableNativeFeedback
+                          onPressOut={() => this.selectFromMonsters(data.index)} >
+                          <View>
+                            <Text>{data.name}</Text>
+                          </View>
+                        </TouchableNativeFeedback>
+                      )} />
+                  </View>
                   {/* <TextInput
                     style={styles.modalTextInput}
                     returnKeyLabel="Character Name"
@@ -130,14 +157,14 @@ class AddModal extends Component {
                     placeholder="Character Name" /> */}
                   <TextInput
                     style={styles.modalNumberInput}
-                    defaultValue={!!this.state.mod? this.state.mod.toString() : ''}
+                    defaultValue={(!!this.state.mod || this.state.mod == 0)? this.state.mod.toString() : ''}
                     keyboardType="numeric"
                     onEndEditing={(event) => this.setState({ mod: Number(event.nativeEvent.text) })}
                     placeholder="Mod" />
                 </View>
                 <View style={styles.modalRadioContainer}>
                   <RadioButtonGroup buttonNames={buttons} callback={this.selectAdvMode} default={1} />
-                  <RadioButtonGroup buttonNames={["Player", "Monster"]} default={this.state.isPC} callback={this.isPCChange} />
+                  <RadioButtonGroup buttonNames={["Player", "Monster"]} default={this.state.isPC? 0 : 1} callback={this.isPCChange} />
                 </View>
 
                 <View style={styles.modalAddCharacter}>

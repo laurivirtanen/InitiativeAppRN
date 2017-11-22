@@ -99,11 +99,18 @@ export const styles = StyleSheet.create({
       margin: 16, 
       padding: 16,
     },
-    modalTextInput:{
+    modalTextInputContainer:{
       flex:4,
+      borderWidth: 0,
     },
     modalNumberInput:{
       flex: 1,
+      right: 0,
+      textAlign: 'center',
+      textAlignVertical: 'bottom',
+      fontWeight: 'bold',
+      fontSize: 20
+      
     },
     modalRadioContainer:{
       display:'flex',
