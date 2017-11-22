@@ -4,6 +4,7 @@ import RadioButtonGroup from './radio-buttons'
 import { styles } from '../styles/styles'
 import { connect } from 'react-redux'
 import { ADD_INITIATE } from '../actions/initiates'
+import Autocomplete from 'react-native-autocomplete-input'
 /*
 Notice the weird usage of TouchableWithoutFeedback elements,
 this is done to accomplish the click-outside-modal-to-close.
@@ -72,7 +73,20 @@ class AddModal extends Component {
     }, this.props.toggleVisibility());
   }
 
+  _filterData = (query) => {
+    let returnData = [];
+    this.props.monsters.map(item => {
+      if(item.name.includes(query)){
+        returnData.push(item.name);
+      }
+      
+    });
+    console.log(returnData);
+
+  } 
+
   render() {
+    const data = this._filterData(this.state.name);
     return (
       <Modal
         animationType="fade"
@@ -86,15 +100,33 @@ class AddModal extends Component {
             <TouchableWithoutFeedback onPress={() => { }}>
               <View style={styles.modalContainer}>
                 <Text>Add new character</Text>
-                <View style={{ flexDirection: "row" }} >
-                  <TextInput
+                <View style={{ flexDirection: "row"}} >
+                  <Autocomplete
+                  containerStyle={{
+                      flex: 1,
+                      left: 0,
+                      position: 'absolute',
+                      right: 0,
+                      top: 0,
+                      zIndex: 144
+                  }}
+                  data={data}
+                  defaultValue={this.state.name}
+                  onChangeText={text => this.setState({ name: text })}
+                  renderItem={data => (
+                      <View style={{backgroundColor:'black'}}>
+                        <Text>{data}</Text>
+                      </View>
+              
+                  )} />
+                  {/* <TextInput
                     style={styles.modalTextInput}
                     returnKeyLabel="Character Name"
                     autoCorrect={false}
                     value={this.state.name}
                     autoCapitalize="words"
                     onChangeText={(value) => this.setState({ name: value })}
-                    placeholder="Character Name" />
+                    placeholder="Character Name" /> */}
                   <TextInput
                     style={styles.modalNumberInput}
                     defaultValue={!!this.state.mod? this.state.mod.toString() : ''}
