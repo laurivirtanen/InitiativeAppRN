@@ -33,3 +33,10 @@ export function SAVE_STATE_TO_JSON() {
     type: "SAVE_STATE_TO_JSON"
   };
 } 
+
+export function SET_FROM_TEMPLATE(items) {
+  return {
+    type: "SET_FROM_TEMPLATE",
+    items: items
+  }
+}
