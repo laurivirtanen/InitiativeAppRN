@@ -14,10 +14,12 @@ export const styles = StyleSheet.create({
   },
   initiateName: {
     backgroundColor: '#DD2C00',
+    
     flexDirection: 'row',
     height: 40,
     padding: 'auto',
     width: 150,
+    height: 'auto',
     alignItems: 'center',
     flexGrow: 4,
     overflow: 'hidden',
@@ -25,15 +27,15 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   initiateImage:{
-    height: 40,
-    width: 40,
+    flexGrow: 1,
   },
   initiateRoll: {
     backgroundColor: '#FFD600',
-    width: 50,
+    flexGrow: 1,
     justifyContent:'center',
     alignItems:'center',
-    margin: 'auto'
+    margin: 0,
+    padding:0,
   },
   initiateDropdown: {
     flexDirection: 'row',

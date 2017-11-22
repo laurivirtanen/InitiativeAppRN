@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, StyleSheet } from 'react-native'
 import RadioButtonGroup from './radio-buttons'
 import { styles } from '../styles/styles'
+import { connect } from 'react-redux'
+import { ADD_INITIATE } from '../actions/initiates'
 /*
 Notice the weird usage of TouchableWithoutFeedback elements,
 this is done to accomplish the click-outside-modal-to-close.
@@ -39,82 +41,92 @@ class AddModal extends Component {
   }
 
   selectAdvMode = (index) => {
-    // event.preventDefault();
-    console.log(index);
-    switch(Number(index)) {
+    switch (Number(index)) {
       case 0:
-        this.setState({adv: "adv"});
+        this.setState({ adv: "adv" });
         break;
       case 1:
-        this.setState({adv: "normal"});
+        this.setState({ adv: "normal" });
         break;
       case 2:
-        this.setState({adv: "disadv"});
+        this.setState({ adv: "disadv" });
         break;
       default:
         break;
     }
-    
+  }
+  isPCChange = (index) => {
+    this.setState({ isPC: !Boolean(index) });
+  }
+
+  showFeedback = () => {
+    console.log("FEEDBACK!!!");
+  }
+  exitModal = () => {
+    this.setState({
+      name: '',
+      adv: 'normal',
+      mod: 0,
+      isPC: null
+    }, this.props.toggleVisibility());
   }
 
   render() {
     console.log(this.state);
-    return(
-      <Modal 
+    return (
+      <Modal
         animationType="fade"
         transparent={true}
         visible={this.props.showModal}
-        onRequestClose={() => this.props.toggleVisibility()}
-        >
-        <TouchableWithoutFeedback 
-          style={{backgroundColor: "#00000060"}}
+        onRequestClose={() => this.exitModal()}
+      >
+        <TouchableWithoutFeedback
+          style={{ backgroundColor: "#00000060" }}
           onPress={() => this.props.toggleVisibility()}>
           <View style={styles.modalBase}>
-            <TouchableWithoutFeedback onPress={() => {}}>
+            <TouchableWithoutFeedback onPress={() => { }}>
               <View style={styles.modalContainer}>
                 <Text>Add new character</Text>
-                <View style={{flexDirection: "row"}} >
-                  <TextInput 
-                    style={styles.modalTextInput} 
-                    autoCorrect={false} 
+                <View style={{ flexDirection: "row" }} >
+                  <TextInput
+                    style={styles.modalTextInput}
+                    returnKeyLabel="Character Name"
+                    autoCorrect={false}
+                    value={this.state.name}
                     autoCapitalize="words"
-                    onChangeText={(value) => this.setState({name: value})}
+                    onChangeText={(value) => this.setState({ name: value })}
                     placeholder="Character Name" />
-                  <TextInput 
-                    style={styles.modalNumberInput} 
-                    keyboardType="numeric" 
-                    onChangeText={(value) => this.setState({mod: Number(value)})} 
+                  <TextInput
+                    style={styles.modalNumberInput}
+                    value={this.state.mod.toString()}
+                    keyboardType="numeric"
+                    onEndEditing={(event) => this.setState({ mod: Number(event.nativeEvent.text) })}
                     placeholder="Mod" />
                 </View>
                 <View style={styles.modalRadioContainer}>
                   <RadioButtonGroup buttonNames={buttons} callback={this.selectAdvMode} default={1} />
-                  <RadioButtonGroup buttonNames={["Player", "Monster"]} callback={() => {}} />
-                  
+                  <RadioButtonGroup buttonNames={["Player", "Monster"]} default={this.state.isPC} callback={this.isPCChange} />
+
                 </View>
-                {/*<View style={{flexDirection: "row"}} >
-                  <TouchableNativeFeedback
-                    onPressOut={this.selectAdvMode}
-                    background={TouchableNativeFeedback.SelectableBackground()}>
-                    <View style={{backgroundColor: "#f00", flex: 1}} ><Text>Nappi</Text></View>
-                    </TouchableNativeFeedback>
-                    <View style={{backgroundColor: "#f00", flex: 1}} ><Text>Nappi</Text></View>
-                    
-                </View>*/}
+
                 <View style={styles.modalAddCharacter}>
-                <TouchableNativeFeedback
-                    background={TouchableNativeFeedback.SelectableBackground()}>
-                
-                <View style={styles.modalAddButton}>
-                  <Text>Add Character</Text>
-                  </View>
-                </TouchableNativeFeedback>
-                <TouchableNativeFeedback>
-                  <View
-                      style={styles.modalAddButton}
+                  <TouchableNativeFeedback
+                    background={TouchableNativeFeedback.SelectableBackground()}
+                    onPressOut={this.prepareDataForSaving} >
+                    <View style={styles.modalAddButton}>
+                      <Text>Add Character</Text>
+                    </View>
+                  </TouchableNativeFeedback>
+                  <TouchableNativeFeedback
+                    background={TouchableNativeFeedback.SelectableBackground()}
+                    onPressOut={this.exitModal}
                   >
-                  <Text>Cancel</Text>
-                  </View>
-                </TouchableNativeFeedback>
+                    <View
+                      style={styles.modalAddButton}
+                    >
+                      <Text>Cancel</Text>
+                    </View>
+                  </TouchableNativeFeedback>
                 </View>
               </View>
             </TouchableWithoutFeedback>
@@ -125,7 +137,4 @@ class AddModal extends Component {
   }
 }
 
-export default AddModal;
-
-  
-
+export default connect()(AddModal);

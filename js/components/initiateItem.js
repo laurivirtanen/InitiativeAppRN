@@ -31,13 +31,14 @@ const InitiateItem = (props) => {
           
 
             <View style={ styles.initiateName } >
-              <Text style={{textAlign: 'center'}}>{initiate.name}</Text>
+              <Text  style={{fontSize: 18, fontWeight: 'bold', marginLeft: 5}}>{initiate.name}</Text>
             </View>
 
             <View style={styles.initiateRoll}>
               <TouchableOpacity
               >
               <TextInput
+              
               maxLength={2}
               multiline={false}
               
