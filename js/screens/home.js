@@ -32,12 +32,6 @@ componentDidMount() {
   this.props.navigation.setParams({wantedAction: wantedFunction})
 }
 */
-const styles = StyleSheet.create({
-  dev: {
-    borderWidth: 1,
-    borderStyle: "solid"
-  }
-});
 
 class Home extends Component {
   static navigationOptions = { header: null } // No header displayed
@@ -98,10 +92,10 @@ class Home extends Component {
         {/* HEADER */}
         <Header drawer={this.drawer} save={this.toggleModalVisibility} />
         {/* /HEADER */}
-        <View style={{flex: 1, flexDirection: "row", borderStyle: "solid", borderWidth: 1}}>
+        <View style={{flex: 1, flexDirection: "row"}}>
           
         
-          <View style={{flex: 1, flexDirection: "column", borderStyle: "solid", borderWidth: 1}}>
+          <View style={{flex: 1, flexDirection: "column"}}>
             
             <View style={{flex: 5}}>
               
@@ -113,15 +107,11 @@ class Home extends Component {
               </ScrollView>
             </View>
             <View style={{bottom: 0, 
-              borderWidth: 1, 
-              borderStyle: "solid", 
               flex: 1, 
               alignItems: "center",
               justifyContent: "center"}}>
               <TouchableOpacity 
                 style={{
-                  borderWidth: 1, 
-                  borderStyle: "solid", 
                   padding: 10,
                   borderRadius: 5 }}
                 onPress={() => this.props.dispatch(Actions.ROLL_INITIATIVES())}>
