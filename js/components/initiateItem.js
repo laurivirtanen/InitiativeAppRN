@@ -37,11 +37,7 @@ const InitiateItem = (props) => {
             <View style={styles.initiateRoll}>
               <TouchableOpacity
               >
-              <TextInput
-              maxLength={2}
-              multiline={false}
-              
-               keyboardType='numeric' >{props.initiative}</TextInput>
+              <Text>{props.initiative}</Text>
               </TouchableOpacity>
           </View>
         </View>

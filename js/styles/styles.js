@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     margin: 'auto',
-    fontSize: 15,
+
   },
   initiateDropdown: {
     flexDirection: 'row',
@@ -112,7 +112,6 @@ export const styles = StyleSheet.create({
     },
     modalNumberInput:{
       flex: 1,
-      textAlign: 'center'
     },
     modalRadioContainer:{
       display:'flex',
