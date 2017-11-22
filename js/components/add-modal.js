@@ -72,7 +72,6 @@ class AddModal extends Component {
   }
 
   render() {
-    console.log(this.props.showModal);
     return (
       <Modal
         animationType="fade"

@@ -1,6 +1,21 @@
-export function SAVE_TEMPLATE(item) {
+export function SAVE_TEMPLATE(name,item) {
     return {
       type: "SAVE_TEMPLATE",
-      item: item
+      item: item,
+      name: name
     };
-  }
+}
+export function UPDATE_TEMPLATE(item, index) {
+    return {
+        type: "UPDATE_TEMPLATE",
+        item: item,
+        index: index
+    }
+}
+
+export function DELETE_TEMPLATE(index) {
+    return {
+        type: "DELETE_TEMPLATE",
+        index: index
+    }
+}
