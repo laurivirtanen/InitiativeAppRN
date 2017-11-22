@@ -82,6 +82,7 @@ class AddModal extends Component {
       
     });
     console.log(returnData);
+    return returnData;
 
   } 
 
