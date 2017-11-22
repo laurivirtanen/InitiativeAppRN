@@ -37,7 +37,11 @@ const InitiateItem = (props) => {
             <View style={styles.initiateRoll}>
               <TouchableOpacity
               >
-              <Text>{props.initiative}</Text>
+              <TextInput
+              maxLength={2}
+              multiline={false}
+              
+               keyboardType='numeric' >{props.initiative}</TextInput>
               </TouchableOpacity>
           </View>
         </View>
@@ -56,23 +60,19 @@ const InitiateItem = (props) => {
               );
             }} />
         </View>
-        <View  style={{flex: 2, flexDirection: 'row', alignItems: 'center'}}>
-          <Text>Adv: </Text>
-          <Picker 
-            selectedValue={initiate.adv} 
-            style={{flex: 1}}
-            onValueChange={(item) => {
-              console.log(item);
-              dispatch(
-                UPDATE_INITIATE(initiate.id, {adv: item})
-              );
-            }} >
-            <Picker.Item label="Normal" value="normal" />
-            <Picker.Item label="Advantage" value="adv" />
-            <Picker.Item label="Disadvantage" value="disadv" />
-          </Picker>
-        </View>
-        
+        <Picker 
+          selectedValue={initiate.adv} 
+          style={{flex: 2}}
+          onValueChange={(item) => {
+            console.log(item);
+            dispatch(
+              UPDATE_INITIATE(initiate.id, {adv: item})
+            );
+          }} >
+          <Picker.Item label="Normal" value="normal" />
+          <Picker.Item label="Advantage" value="adv" />
+          <Picker.Item label="Disadvantage" value="disadv" />
+        </Picker>
         <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
           <Text>PC: </Text>
           <CheckBox value={initiate.isPC} style={{flex: 1}} onValueChange={(item) => {
