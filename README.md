@@ -16,3 +16,8 @@ Jos taas masterissa on muita muutoksia, tee seuraavat toimenpiteet:
 `$ git push`
 
 `$ git stash pop`
+
+### Mörkö API
+
+Möröt löytyvät http://jani-test.azurewebsites.net/getmonsters
+GET-pyynnöllä!
