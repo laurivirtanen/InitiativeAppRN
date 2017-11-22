@@ -9,8 +9,6 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: 'stretch',
-    borderWidth: 1,
-    borderStyle: "solid",
     flexWrap: 'nowrap',
     //borderBottomWidth: initiate.showDetail? 0 : 1,
   },
@@ -35,15 +33,11 @@ export const styles = StyleSheet.create({
     width: 50,
     justifyContent:'center',
     alignItems:'center',
-    margin: 'auto',
-    fontSize: 15,
+    margin: 'auto'
   },
   initiateDropdown: {
     flexDirection: 'row',
-    borderWidth: 1,
     backgroundColor: 'hotpink',
-    borderStyle: "solid",
-    borderTopWidth: 0,
     justifyContent: "space-between",
     alignItems: 'center',
     padding: 2
@@ -54,9 +48,7 @@ export const styles = StyleSheet.create({
     headerContainer:{
       height: 60,
       flexDirection: "row",
-      justifyContent: "space-between",
-      borderStyle: "solid",
-      borderWidth: 1,
+      justifyContent: "space-between"
     },
     headerButton:{
       width: 60,
@@ -73,7 +65,6 @@ export const styles = StyleSheet.create({
     //RADIOBUTTONS
     radioButton: {
       backgroundColor: "#f00",
-      borderWidth: 1,
       height: 50,
       marginBottom: 8,
       marginTop: 8,
@@ -86,7 +77,6 @@ export const styles = StyleSheet.create({
       height: 50,
       marginBottom: 8,
       marginTop: 8,
-      borderWidth: 2,
       alignItems: 'center',
       justifyContent: 'center',
       flex: 1
@@ -126,7 +116,6 @@ export const styles = StyleSheet.create({
     modalAddButton:{ 
       justifyContent: 'center',
       alignItems: 'center',
-      borderWidth: 1, 
       flex: 2, 
       height: 40, 
     }
