@@ -9,10 +9,12 @@ import {
 import AddModal from './add-modal';
 import Header from './header';
 import { connect } from 'react-redux';
+import InitActions from '../actions/initiates';
 import * as TmplActions from '../actions/templates';
 
 
 class Drawer extends Component {
+  state = { selectedTemplate: null }
 
   saveTemplate = () => {
     console.log(this.props.initiates);
@@ -21,8 +23,14 @@ class Drawer extends Component {
     );
     console.log(this.props.templates);
   }
-  loadTemplate = (templateIndex) => {
+  loadTemplate = () => {
+    console.log(this.state.selectedTemplate);
+    /* this.props.dispatch(
 
+    ); */
+  }
+  changeTemplate = (index) => {
+    this.setState({selectedTemplate: index});
   }
 
   render() {
@@ -38,13 +46,22 @@ class Drawer extends Component {
           </View>
         </TouchableNativeFeedback>
         
-        <Picker enabled={this.props.templates.length < 1 ? false : true} >
+        <Picker 
+          ref={(templatePicker) => this.templatePicker = templatePicker} 
+          enabled={this.props.templates.length < 1 ? false : true}
+          onValueChange={item => this.changeTemplate(item)} >
           {this.props.templates.length < 1 ? <Picker.Item label="None" /> : this.props.templates.map((item, index) => {
             return (
-              <Picker.Item label={item.name} value={index} />
+              <Picker.Item key={index}label={item.name} value={index} />
             );
           })}
         </Picker>
+        <TouchableNativeFeedback
+          onPressOut={this.loadTemplate} >
+          <View>
+            <Text>Save as template</Text>
+          </View>
+        </TouchableNativeFeedback>
       </View>
     );
     return(

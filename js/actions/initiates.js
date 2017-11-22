@@ -40,3 +40,10 @@ export function LOAD_MONSTERS(item) {
     monsters: item
   };
 }
+
+export function SET_FROM_TEMPLATE(items) {
+  return {
+    type: "SET_FROM_TEMPLATE",
+    items: items
+  }
+}

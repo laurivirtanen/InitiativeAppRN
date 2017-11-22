@@ -71,6 +71,8 @@ export default (state = [], action) => {
     let json = JSON.stringify(stateToJSON);
     console.log(json);
     return state;
+  case "SET_FROM_TEMPLATE":
+    return action.items;
   default:
     return state;
   }

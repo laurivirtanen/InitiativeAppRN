@@ -52,7 +52,7 @@ const InitiateItem = (props) => {
           <Text>Mod:</Text>
           <TextInput 
             keyboardType="numeric" 
-            defaultValue={initiate.mod.toString()} 
+            defaultValue={!!initiate.mod? initiate.mod.toString() : ''} 
             style={{flex: 1, textAlign: 'center'}}
             onEndEditing={(event) => {
               console.log(event.nativeEvent.text);
