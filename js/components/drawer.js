@@ -9,12 +9,12 @@ import {
 import AddModal from './add-modal';
 import Header from './header';
 import { connect } from 'react-redux';
-import InitActions from '../actions/initiates';
+import * as InitActions from '../actions/initiates';
 import * as TmplActions from '../actions/templates';
 
 
 class Drawer extends Component {
-  state = { selectedTemplate: null }
+  state = { selectedTemplate: 0 }
 
   saveTemplate = () => {
     console.log(this.props.initiates);
@@ -24,10 +24,13 @@ class Drawer extends Component {
     console.log(this.props.templates);
   }
   loadTemplate = () => {
-    console.log(this.state.selectedTemplate);
-    /* this.props.dispatch(
-
-    ); */
+    let newItems = this.props.templates[this.state.selectedTemplate].values;
+    if (!!newItems) {
+      this.props.dispatch(
+        InitActions.SET_FROM_TEMPLATE(newItems)
+      );
+    }
+    
   }
   changeTemplate = (index) => {
     this.setState({selectedTemplate: index});
@@ -81,7 +84,8 @@ class Drawer extends Component {
 const mapStateToProps = (state) => {
   return {
     initiates: state.initiates,
-    templates: state.templates
+    templates: state.templates,
+    nav: state.nav
   }
 }
 

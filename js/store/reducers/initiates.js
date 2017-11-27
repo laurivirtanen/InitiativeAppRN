@@ -72,7 +72,12 @@ export default (state = [], action) => {
     console.log(json);
     return state;
   case "SET_FROM_TEMPLATE":
-    return action.items;
+    return action.items.map((item, index) => {
+      return {
+        ...item,
+        id: index
+      }
+    });
   default:
     return state;
   }
@@ -82,14 +87,14 @@ export default (state = [], action) => {
 // Delete this after testing!
 const mockData = [
   { id: 0, name: "test0", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
-  { id: 1, name: "test1", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
-  { id: 2, name: "test2", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
-  { id: 3, name: "test3", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
+  { id: 1, name: "test1", mod: 1, adv: "normal", isPC: true, showDetail: false, init: null},
+  { id: 2, name: "test2", mod: 2, adv: "normal", isPC: true, showDetail: false, init: null},
+  { id: 3, name: "test3", mod: 3, adv: "normal", isPC: true, showDetail: false, init: null},
   { id: 4, name: "test4", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
-  { id: 5, name: "test5", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
-  { id: 6, name: "test6", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
-  { id: 7, name: "test7", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
+  { id: 5, name: "test5", mod: 1, adv: "normal", isPC: true, showDetail: false, init: null},
+  { id: 6, name: "test6", mod: 2, adv: "normal", isPC: true, showDetail: false, init: null},
+  { id: 7, name: "test7", mod: 3, adv: "normal", isPC: true, showDetail: false, init: null},
   { id: 8, name: "test8", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
-  { id: 9, name: "test9", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null},
-  { id: 10, name: "test10", mod: 0, adv: "normal", isPC: true, showDetail: false, init: null}
+  { id: 9, name: "test9", mod: 1, adv: "normal", isPC: true, showDetail: false, init: null},
+  { id: 10, name: "test10", mod: 2, adv: "normal", isPC: true, showDetail: false, init: null}
 ];

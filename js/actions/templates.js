@@ -10,12 +10,19 @@ export function UPDATE_TEMPLATE(item, index) {
         type: "UPDATE_TEMPLATE",
         item: item,
         index: index
-    }
+    };
 }
 
 export function DELETE_TEMPLATE(index) {
     return {
         type: "DELETE_TEMPLATE",
         index: index
-    }
+    };
+}
+
+export function LOAD_TEMPLATES(items) {
+    return {
+        type: "LOAD_TEMPLATES",
+        items: items
+    };
 }

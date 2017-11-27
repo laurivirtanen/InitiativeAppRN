@@ -9,7 +9,8 @@ import {
   FlatList,
   TouchableHighlight,
   TouchableNativeFeedback,
-  ScrollView
+  ScrollView,
+  AsyncStorage
 } from 'react-native';
 import {
   AdMobBanner
@@ -19,6 +20,7 @@ import { connect } from 'react-redux';
 import InitiateItem from '../components/initiateItem';
 
 import * as Actions from '../actions/initiates';
+import * as TmplActions from '../actions/templates';
 import { RollD20 } from '../functions/functions';
 import Drawer from '../components/drawer';
 
@@ -37,7 +39,7 @@ componentDidMount() {
 class Home extends Component {
   static navigationOptions = { header: null } // No header displayed
   state = {showModal: false}
-  componentDidMount() {
+  async componentDidMount() {
     this.props.dispatch({
       type: "LOAD_MOCKDATA"
     });
@@ -53,6 +55,19 @@ class Home extends Component {
         Actions.LOAD_MONSTERS(monsters)
       );
     }).catch(err => console.log(err));
+    try {
+      let templatesRaw = await AsyncStorage.getItem("InitiativeTemplates");
+      let templates = JSON.parse(templatesRaw);
+      console.log(templates);
+      if (!!templates) {
+        this.props.dispatch(
+          TmplActions.LOAD_TEMPLATES(templates)
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    
   }
   
   sortInitiates = (arr) => {
