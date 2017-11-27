@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import AddModal from './add-modal';
 import Header from './header';
+import { styles } from '../styles/styles';
 import { connect } from 'react-redux';
 import * as InitActions from '../actions/initiates';
 import * as TmplActions from '../actions/templates';
@@ -38,9 +39,7 @@ class Drawer extends Component {
 
   render() {
     const drawerView = (
-      <View style={{
-        flex: 1,
-        backgroundColor: "#ff0000" }}>
+      <View style={styles.drawerContainer}>
         <Text>I'm in the drawer!</Text>
         <TouchableNativeFeedback
           onPressOut={this.saveTemplate} >

@@ -10,6 +10,7 @@ import {
   TouchableHighlight,
   TouchableNativeFeedback,
   ScrollView,
+  Image,
   AsyncStorage
 } from 'react-native';
 import {
@@ -23,6 +24,7 @@ import * as Actions from '../actions/initiates';
 import * as TmplActions from '../actions/templates';
 import { RollD20 } from '../functions/functions';
 import Drawer from '../components/drawer';
+import { styles } from '../styles/styles';
 
 /* Delegating functions to header in React Navigation
 
@@ -131,10 +133,10 @@ class Home extends Component {
                 
               </ScrollView>
             </View>
-            <View style={{bottom: 0, 
-              flex: 1, 
-              alignItems: "center",
-              justifyContent: "center"}}>
+            <View style={styles.rollContainer}>
+              <Image
+                style={{ height: 64, width: 64 }}
+                source={require("../../images/d20.png")} />
               <TouchableOpacity 
                 style={{
                   padding: 10,
@@ -142,6 +144,9 @@ class Home extends Component {
                 onPress={() => this.props.dispatch(Actions.ROLL_INITIATIVES())}>
                 <Text>Roll for Initiative!</Text>
               </TouchableOpacity>
+              <Image
+                style={{ height: 64, width: 64 }}
+                source={require("../../images/d20.png")} />
             </View>
           </View>
           

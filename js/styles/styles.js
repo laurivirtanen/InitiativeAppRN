@@ -1,44 +1,56 @@
 import { StyleSheet } from 'react-native';
+
+const Yellow = '#FFD600';
+const primaryColor = '#ff6f00';
+const primarycolorLightColor = '#ffa040';
+const primarycolorDarkColor = '#c43e00';
+const secondaryColor = '#8d6e63';
+const secondaryLightColor = '#be9c91';
+const secondaryDarkColor = '#5f4339';
+const primaryTextColor = '#000000';
+const secondaryTextColor = '#ffffff';
+
 export const styles = StyleSheet.create({
 
 
   // List Printing
   listContainer: {
     display: 'flex',
-    flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: 'stretch',
     flexWrap: 'nowrap',
+    backgroundColor: secondaryDarkColor,
     //borderBottomWidth: initiate.showDetail? 0 : 1,
   },
   initiateName: {
-    backgroundColor: '#DD2C00',
+    flexGrow: 7,
+    flex: 1,
+    backgroundColor: primarycolorDarkColor,
     flexDirection: 'row',
     height: 40,
-    padding: 'auto',
-    width: 150,
     height: 'auto',
-    alignItems: 'center',
-    flexGrow: 4,
+    textAlignVertical: 'center',
     overflow: 'hidden',
-    margin: 'auto',
-    flex: 1,
+    fontSize: 20,
+    color:secondaryTextColor,
+    fontWeight: 'bold',
+    paddingLeft: 5,
   },
   initiateImage:{
+    flex:0,
     flexGrow: 1,
   },
   initiateRoll: {
-    backgroundColor: '#FFD600',
+    backgroundColor: secondaryDarkColor,
     flexGrow: 1,
-    justifyContent:'center',
+    color:secondaryTextColor,
+    textAlign:'center',
     alignItems:'center',
-    margin: 0,
-    padding:0,
   },
   initiateDropdown: {
     flexDirection: 'row',
-    backgroundColor: 'hotpink',
+    backgroundColor: secondaryLightColor,
     justifyContent: "space-between",
     alignItems: 'center',
     padding: 2
@@ -50,16 +62,31 @@ export const styles = StyleSheet.create({
 
   //Header styles
   headerContainer:{
-    height: 60,
+    display: 'flex',
     flexDirection: "row",
-    justifyContent: "space-between"
+    alignContent: 'flex-start',
+    justifyContent: "space-between",
+    borderBottomWidth:3,
+    flex:0,
+    backgroundColor:primarycolorLightColor,
   },
+  
   headerButton:{
-    width: 60,
     margin: 0,
-    backgroundColor: 'red',
+    backgroundColor: secondaryColor,
+    alignContent:'center',
   },
   headerButtonText:{
+    flexGrow:1,
+    fontSize: 30,
+    textAlign: 'center',
+    borderWidth: 2,
+    textAlignVertical: 'center',
+  },
+  headerText:{
+    flexGrow:2,
+    backgroundColor: primarycolorLightColor,
+    color: primaryTextColor,
     fontSize: 30,
     textAlign: 'center',
     textAlignVertical: 'center',
@@ -95,7 +122,7 @@ export const styles = StyleSheet.create({
     backgroundColor:"#00000090",
   },
   modalContainer:{
-    backgroundColor: "#fff",
+    backgroundColor: secondaryDarkColor,
     borderRadius: 8, 
     height: 300, 
     margin: 16, 
@@ -111,6 +138,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'bottom',
     fontWeight: 'bold',
+    color: secondaryTextColor,
     fontSize: 20
     
   },
@@ -128,7 +156,23 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 2, 
     height: 40, 
-  }
+  },
+
+  //DRAWER
+  drawerContainer:{
+    flex: 1,
+    backgroundColor: secondaryColor,
+  },
+
+  //home
+  rollContainer:{
+    bottom: 0,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor:primarycolorLightColor
+  },
 
 
 

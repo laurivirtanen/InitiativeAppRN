@@ -22,21 +22,15 @@ const InitiateItem = (props) => {
             UPDATE_INITIATE(initiate.id, {showDetail: !initiate.showDetail})
         )} >
         <View style={styles.listContainer}>
-        
-
           <Image
-            style={styles.initiateImage}
-            source={{uri: 'http://student.labranet.jamk.fi/~K8455/i1.png'}} />
-          <View style={ styles.initiateName } >
-            <Text  style={{fontSize: 18, fontWeight: 'bold', marginLeft: 5}}>{initiate.name}</Text>
-          </View>
-
-          <View style={styles.initiateRoll}>
+            style={[...styles.initiateImage, { height: 32, width: 32,margin:8 }]}
+            source={initiate.isPC ? require("../../images/pc.png") : require("../../images/dragon.png")}/>
+          <Text style={styles.initiateName}>{initiate.name}</Text>
             <TextInput
+              style={styles.initiateRoll}
               maxLength={2}
               multiline={false}
               keyboardType='numeric' >{props.initiative}</TextInput>
-          </View>
         </View>
       </TouchableOpacity>
       {/* Collapsing panel begins! */}
