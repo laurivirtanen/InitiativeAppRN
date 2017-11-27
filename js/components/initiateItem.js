@@ -79,11 +79,9 @@ const InitiateItem = (props) => {
         <View style={styles.initiateKill}>
           <TouchableOpacity
             onPress={() => dispatch(REMOVE_INITIATE(initiate.id))} >
-            <View>
               <Image
                 style={[...styles.initiateImage, {height: 30, width: 30, marginRight: 10}]}
                 source={require("../../images/Delete.png")} />
-            </View>
           </TouchableOpacity>
         </View>
       </View>

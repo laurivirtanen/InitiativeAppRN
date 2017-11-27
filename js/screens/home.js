@@ -125,8 +125,8 @@ class Home extends Component {
             <View style={{flex: 5}}>
               
               <ScrollView >
-                { (sortedInitiates.length > 0) ? sortedInitiates.map((item) => {
-                    return <InitiateItem initiate={item} key={item.id} initiative={item.init}/> // prop initiative is necessary to force update on InitiateItem!
+                { (sortedInitiates.length > 0) ? sortedInitiates.map((item, index) => {
+                    return <InitiateItem initiate={item} key={item.id} initiative={item.init} /> // prop initiative is necessary to force update on InitiateItem!
                   }): null}
                 
               </ScrollView>

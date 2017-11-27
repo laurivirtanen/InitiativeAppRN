@@ -62,7 +62,7 @@ class Drawer extends Component {
         <TouchableNativeFeedback
           onPressOut={this.loadTemplate} >
           <View>
-            <Text>Save as template</Text>
+            <Text>Load template</Text>
           </View>
         </TouchableNativeFeedback>
       </View>
