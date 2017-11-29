@@ -9,7 +9,6 @@ const secondaryLightColor = '#be9c91';
 const secondaryDarkColor = '#5f4339';
 const primaryTextColor = '#000000';
 const secondaryTextColor = '#ffffff';
-
 export const styles = StyleSheet.create({
 
 
@@ -36,7 +35,13 @@ export const styles = StyleSheet.create({
     color:secondaryTextColor,
     fontWeight: 'bold',
     paddingLeft: 5,
+  }, 
+  initiateHighLight:{
+    fontSize:30,
+    height: 50,
+    backgroundColor: '#fff2'
   },
+
   initiateImage:{
     flex:0,
     flexGrow: 1,

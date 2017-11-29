@@ -25,7 +25,7 @@ const InitiateItem = (props) => {
           <Image
             style={[...styles.initiateImage, { height: 32, width: 32,margin:8 }]}
             source={initiate.isPC ? require("../../images/pc.png") : require("../../images/dragon.png")}/>
-          <Text style={styles.initiateName}>{initiate.name}</Text>
+          <Text style={props.highlight ? [styles.initiateName, styles.initiateHighLight]  : styles.initiateName}>{initiate.name}</Text>
             <TextInput
               style={styles.initiateRoll}
               maxLength={2}
