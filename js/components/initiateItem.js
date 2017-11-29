@@ -25,12 +25,12 @@ const InitiateItem = (props) => {
           <Image
             style={[...styles.initiateImage, { height: 32, width: 32,margin:8 }]}
             source={initiate.isPC ? require("../../images/pc_light.png") : require("../../images/dragon_light.png")}/>
-          <Text style={styles.initiateName}>{initiate.name}</Text>
-            <TextInput
-              style={styles.initiateRoll}
-              maxLength={2}
-              multiline={false}
-              keyboardType='numeric' >{props.initiative}</TextInput>
+          <Text style={props.highlight ? [styles.initiateName, styles.initiateHighLight]  : styles.initiateName}>{initiate.name}</Text>
+          <TextInput
+            style={styles.initiateRoll}
+            maxLength={2}
+            multiline={false}
+            keyboardType='numeric' >{props.initiative}</TextInput>
         </View>
       </TouchableOpacity>
       {/* Collapsing panel begins! */}

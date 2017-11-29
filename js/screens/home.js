@@ -40,7 +40,7 @@ componentDidMount() {
 
 class Home extends Component {
   static navigationOptions = { header: null } // No header displayed
-  state = {showModal: false}
+  state = {showModal: false, highlightIndex: null}
   async componentDidMount() {
     this.props.dispatch({
       type: "LOAD_MOCKDATA"
@@ -126,25 +126,35 @@ class Home extends Component {
               
               <ScrollView >
                 { (sortedInitiates.length > 0) ? sortedInitiates.map((item, index) => {
-                    return <InitiateItem initiate={item} key={item.id} initiative={item.init} /> // prop initiative is necessary to force update on InitiateItem!
+                    return <InitiateItem initiate={item} key={item.id} initiative={item.init} highlight={index==this.state.highlightIndex? true: false}/> // prop initiative is necessary to force update on InitiateItem!
                   }): null}
                 
               </ScrollView>
             </View>
             <View style={styles.rollContainer}>
+              <TouchableNativeFeedback
+                onPress={() => this.state.highlightIndex == null ? null : this.setState({
+                  highlightIndex: this.state.highlightIndex <= 0 ? this.state.highlightIndex = 0 : --this.state.highlightIndex
+                })}
+              >
               <Image
                 style={{ height: 64, width: 64 }}
-                source={require("../../images/d20.png")} />
+                  source={this.state.highlightIndex == null ? require("../../images/d20.png") : require("../../images/leftArrow.png")} />
+              </TouchableNativeFeedback>
+              
               <TouchableOpacity 
-                style={{
-                  padding: 10,
-                  borderRadius: 5 }}
-                onPress={() => this.props.dispatch(Actions.ROLL_INITIATIVES())}>
-                <Text>Roll for Initiative!</Text>
+                onPressOut={() => this.props.dispatch(Actions.ROLL_INITIATIVES(), this.state.highlightIndex=0)}>
+                  <Text style={{textAlignVertical:'center'}}>Roll for Initiative!</Text>
               </TouchableOpacity>
+              <TouchableNativeFeedback
+                onPressOut={() => this.state.highlightIndex == null ? null : this.setState({
+                  highlightIndex:  this.state.highlightIndex >= sortedInitiates.length ? 0: ++this.state.highlightIndex
+                })}
+              >
               <Image
                 style={{ height: 64, width: 64 }}
-                source={require("../../images/d20.png")} />
+                source={this.state.highlightIndex == null ? require("../../images/d20.png") : require("../../images/rightArrow.png")} />
+              </TouchableNativeFeedback>
             </View>
           </View>
           
