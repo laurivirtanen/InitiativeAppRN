@@ -103,6 +103,19 @@ class AddModal extends Component {
     });
   }
 
+  handleRadioChange = () => {
+    switch(this.state.adv) {
+      case "adv":
+        return 0;
+      case "normal":
+        return 1;
+      case "disadv":
+        return 2;
+      default:
+        return 1;
+    }
+  }
+
   render() {
     const data = this._filterData(this.state.name);
     return (
@@ -121,7 +134,6 @@ class AddModal extends Component {
                 <View style={{ flexDirection: "row"}} >
                   <View style={{flex:5}}>
                     <Autocomplete
-                      autoCapitalize="words"
                       inputContainerStyle={styles.modalTextInputContainer}
                       containerStyle={{
                           flex: 4,
@@ -129,15 +141,20 @@ class AddModal extends Component {
                           position: 'absolute',
                           borderWidth: 0,
                           right: 0,
-                          top: 9,
+                          top: 0,
                           zIndex: 144
                       }}
                       data={data}
-                      defaultValue={this.state.name}
-                      placeholder="Character Name"
                       hideResults={!this.state.showSuggestions}
-                      onEndEditing={() => this.setState({showSuggestions: false})}
-                      onChangeText={text => this.setState({ name: text, showSuggestions: true })}
+                      renderTextInput={(props) => (
+                        <TextInput
+                          style={styles.modalTextInput} 
+                          placeholder="Character Name"
+                          defaultValue={this.state.name}
+                          onEndEditing={() => this.setState({showSuggestions: false})}
+                          onChangeText={text => this.setState({ name: text, showSuggestions: true })}
+                          autoCapitalize="words" />
+                      )}
                       renderItem={data => (
                         <TouchableNativeFeedback
                           onPressOut={() => this.selectFromMonsters(data.index)} >
@@ -163,7 +180,7 @@ class AddModal extends Component {
                     placeholder="Mod" />
                 </View>
                 <View style={styles.modalRadioContainer}>
-                  <RadioButtonGroup buttonNames={buttons} callback={this.selectAdvMode} default={1} />
+                  <RadioButtonGroup buttonNames={buttons} callback={this.selectAdvMode} default={this.handleRadioChange()} />
                   <RadioButtonGroup buttonNames={["Player", "Monster"]} default={this.state.isPC? 0 : 1} callback={this.isPCChange} />
                 </View>
 

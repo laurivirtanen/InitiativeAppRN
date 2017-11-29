@@ -24,7 +24,7 @@ const InitiateItem = (props) => {
         <View style={styles.listContainer}>
           <Image
             style={[...styles.initiateImage, { height: 32, width: 32,margin:8 }]}
-            source={initiate.isPC ? require("../../images/pc.png") : require("../../images/dragon.png")}/>
+            source={initiate.isPC ? require("../../images/pc_light.png") : require("../../images/dragon_light.png")}/>
           <Text style={styles.initiateName}>{initiate.name}</Text>
             <TextInput
               style={styles.initiateRoll}

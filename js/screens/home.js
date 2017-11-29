@@ -52,7 +52,6 @@ class Home extends Component {
       }
     }).then((response) => {
       let monsters = JSON.parse(response._bodyText);
-      console.log(monsters);
       this.props.dispatch(
         Actions.LOAD_MONSTERS(monsters)
       );
@@ -60,7 +59,6 @@ class Home extends Component {
     try {
       let templatesRaw = await AsyncStorage.getItem("InitiativeTemplates");
       let templates = JSON.parse(templatesRaw);
-      console.log(templates);
       if (!!templates) {
         this.props.dispatch(
           TmplActions.LOAD_TEMPLATES(templates)
@@ -119,7 +117,7 @@ class Home extends Component {
     return(
       <Drawer showModal={this.state.showModal} toggleModalVisibility={this.toggleModalVisibility}>
         
-        <View style={{flex: 1, flexDirection: "row"}}>
+        <View style={styles.mainContainer}>
           
         
           <View style={{flex: 1, flexDirection: "column"}}>

@@ -15,7 +15,7 @@ export default class RadioButtonGroup extends Component {
      * - callback: a function that handles returning index of the Array
      * - default: index of the wanted default button
      */
-    state = {chosen: this.props.default}
+    state = {chosen: this.props.default, default: this.props.default}
 
     componentWillReceiveProps(nextProps) {
       if (nextProps != this.props) {

@@ -7,6 +7,8 @@ import {
     Picker
 } from 'react-native';
 import AddModal from './add-modal';
+import TmplModal from './tmpl-modal';
+import SaveModal from './save-modal';
 import Header from './header';
 import { styles } from '../styles/styles';
 import { connect } from 'react-redux';
@@ -15,36 +17,47 @@ import * as TmplActions from '../actions/templates';
 
 
 class Drawer extends Component {
-  state = { selectedTemplate: 0 }
+  state = { selectedTemplate: 0, showModal: false, showSaveModal: false, action: 'load' }
 
   saveTemplate = () => {
-    console.log(this.props.initiates);
-    this.props.dispatch(
+    console.log("Saving template...");
+    this.setState({showSaveModal: true});
+    /* this.props.dispatch(
       TmplActions.SAVE_TEMPLATE("TEST", this.props.initiates)
-    );
-    console.log(this.props.templates);
+    ); */
   }
   loadTemplate = () => {
-    let newItems = this.props.templates[this.state.selectedTemplate].values;
+    console.log("Loading template...");
+    this.setState({showModal: true, action: 'load'});
+    /* let newItems = this.props.templates[this.state.selectedTemplate].values;
     if (!!newItems) {
       this.props.dispatch(
         InitActions.SET_FROM_TEMPLATE(newItems)
       );
-    }
-    
+    } */
+  }
+  deleteTemplate = () => {
+    console.log("Deleting template...");
+    this.setState({showModal: true, action: 'delete'});
   }
   changeTemplate = (index) => {
     this.setState({selectedTemplate: index});
+  }
+  toggleTmplModalVisibility = () => {
+    this.setState({showModal: !this.state.showModal});
+  }
+  toggleSaveModalVisibility = () => {
+    this.setState({showSaveModal: !this.state.showSaveModal});
   }
 
   render() {
     const drawerView = (
       <View style={styles.drawerContainer}>
-        <Text>I'm in the drawer!</Text>
+        <View style={styles.drawerHeaderContainer}></View>
         <TouchableNativeFeedback
           onPressOut={this.saveTemplate} >
           <View>
-            <Text>Save as template</Text>
+            <Text style={{textAlign: 'center'}}>Save as template</Text>
           </View>
         </TouchableNativeFeedback>
         
@@ -58,12 +71,20 @@ class Drawer extends Component {
             );
           })}
         </Picker>
-        <TouchableNativeFeedback
-          onPressOut={this.loadTemplate} >
-          <View>
-            <Text>Load template</Text>
-          </View>
-        </TouchableNativeFeedback>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableNativeFeedback
+            onPressOut={this.loadTemplate} >
+            <View style={{flex: 1}}>
+              <Text style={{textAlign: 'center'}}>Load</Text>
+            </View>
+          </TouchableNativeFeedback>
+          <TouchableNativeFeedback
+            onPressOut={this.deleteTemplate} >
+            <View style={{flex: 1}}>
+              <Text style={{textAlign: 'center'}}>Delete</Text>
+            </View>
+          </TouchableNativeFeedback>
+        </View>
       </View>
     );
     return(
@@ -73,6 +94,16 @@ class Drawer extends Component {
         drawerPosition={DrawerLayoutAndroid.positions.Left}
         renderNavigationView={() => drawerView}>
         <AddModal showModal={this.props.showModal} toggleVisibility={this.props.toggleModalVisibility} />
+        <TmplModal 
+          showModal={this.state.showModal} 
+          toggleVisibility={this.toggleTmplModalVisibility} 
+          action={this.state.action} 
+          templateIndex={this.state.selectedTemplate} 
+          drawer={this.drawer} />
+        <SaveModal 
+          showModal={this.state.showSaveModal} 
+          toggleVisibility={this.toggleSaveModalVisibility} 
+          drawer={this.drawer} />
         <Header drawer={this.drawer} save={this.props.toggleModalVisibility} />
         {this.props.children}
       </DrawerLayoutAndroid>

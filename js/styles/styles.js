@@ -1,13 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-const Yellow = '#FFD600';
-const primaryColor = '#ff6f00';
-const primarycolorLightColor = '#ffa040';
-const primarycolorDarkColor = '#c43e00';
-const secondaryColor = '#8d6e63';
-const secondaryLightColor = '#be9c91';
-const secondaryDarkColor = '#5f4339';
-const primaryTextColor = '#000000';
+const primaryColor = '#765548';
+const primaryLightColor = '#a98274';
+const primaryDarkColor = '#4b3c20';
+const secondaryColor = '#757575';
+const secondaryLightColor = '#a4a4a4';
+const secondaryDarkColor = '#494949';
+const primaryTextColor = '#ffffff';
 const secondaryTextColor = '#ffffff';
 
 export const styles = StyleSheet.create({
@@ -21,12 +20,12 @@ export const styles = StyleSheet.create({
     alignItems: 'stretch',
     flexWrap: 'nowrap',
     backgroundColor: secondaryDarkColor,
-    //borderBottomWidth: initiate.showDetail? 0 : 1,
+    borderTopWidth: 1,
   },
   initiateName: {
     flexGrow: 7,
     flex: 1,
-    backgroundColor: primarycolorDarkColor,
+    backgroundColor: primaryLightColor,
     flexDirection: 'row',
     height: 40,
     height: 'auto',
@@ -39,7 +38,7 @@ export const styles = StyleSheet.create({
   },
   initiateImage:{
     flex:0,
-    flexGrow: 1,
+    flexGrow: 1
   },
   initiateRoll: {
     backgroundColor: secondaryDarkColor,
@@ -50,10 +49,11 @@ export const styles = StyleSheet.create({
   },
   initiateDropdown: {
     flexDirection: 'row',
-    backgroundColor: secondaryLightColor,
+    backgroundColor: secondaryColor,
     justifyContent: "space-between",
     alignItems: 'center',
-    padding: 2
+    padding: 2,
+    borderBottomWidth: 1
   },
   /* initiateKill: {
     flex: 1
@@ -68,7 +68,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderBottomWidth:3,
     flex:0,
-    backgroundColor:primarycolorLightColor,
+    backgroundColor:primaryColor,
   },
   
   headerButton:{
@@ -76,16 +76,9 @@ export const styles = StyleSheet.create({
     backgroundColor: secondaryColor,
     alignContent:'center',
   },
-  headerButtonText:{
-    flexGrow:1,
-    fontSize: 30,
-    textAlign: 'center',
-    borderWidth: 2,
-    textAlignVertical: 'center',
-  },
   headerText:{
     flexGrow:2,
-    backgroundColor: primarycolorLightColor,
+    backgroundColor: primaryColor,
     color: primaryTextColor,
     fontSize: 30,
     textAlign: 'center',
@@ -122,15 +115,38 @@ export const styles = StyleSheet.create({
     backgroundColor:"#00000090",
   },
   modalContainer:{
-    backgroundColor: secondaryDarkColor,
+    backgroundColor: '#ffffff',
     borderRadius: 8, 
     height: 300, 
     margin: 16, 
     padding: 16,
   },
+  modalTmplPlugin: {
+    flexDirection: 'column',
+    padding: 0,
+    justifyContent: 'space-between'
+  },
+  modalTitle: {
+    backgroundColor: secondaryLightColor,
+    fontSize: 20,
+    padding: 16,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    fontWeight: 'bold',
+  },
+  modalDescription: {
+    padding: 16
+  },
+  modalTextInput: {
+    color: primaryTextColor,
+    fontSize: 20,
+    textAlignVertical: 'bottom',
+    fontWeight: 'bold'
+  },
   modalTextInputContainer:{
     flex:4,
     borderWidth: 0,
+    backgroundColor: secondaryLightColor
   },
   modalNumberInput:{
     flex: 1,
@@ -138,7 +154,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'bottom',
     fontWeight: 'bold',
-    color: secondaryTextColor,
+    color: primaryTextColor,
     fontSize: 20
     
   },
@@ -157,11 +173,33 @@ export const styles = StyleSheet.create({
     flex: 2, 
     height: 40, 
   },
+  ButtonPrimary: {
+    padding: 16,
+    backgroundColor: secondaryColor,
+    marginLeft: 8,
+    borderRadius: 8,
+    borderColor: secondaryLightColor
+  },
+  ButtonSecondary: {
+    padding: 16,
+    marginLeft: 8,
+    borderRadius: 8,
+  },
+  ButtonText: {
+    color: primaryTextColor
+  },
+  ButtonTextSecondary: {
+    color: secondaryColor
+  },
 
   //DRAWER
   drawerContainer:{
     flex: 1,
-    backgroundColor: secondaryColor,
+    //backgroundColor: secondaryColor,
+  },
+  drawerHeaderContainer:{
+    height: 100,
+    backgroundColor: secondaryColor
   },
 
   //home
@@ -171,8 +209,13 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:primarycolorLightColor
+    backgroundColor:primaryColor
   },
+  mainContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: secondaryLightColor
+  }
 
 
 
