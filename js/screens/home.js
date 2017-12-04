@@ -62,26 +62,20 @@ class Home extends Component {
 
   // Save this for later use!
   save = () => {
-    console.log("Firing");
     this.props.dispatch(Actions.SAVE_STATE_TO_JSON());
   }
 
   toggleModalVisibility = () => {
-    console.log("Firing");
-    console.log(this.state.showModal);
     this.setState({showModal: !this.state.showModal});
   }
 
   changeInitiativeManually = (value, index) => {
-    console.log(value);
-    console.log(index);
     let obj = {init: Number(value)}
     this.props.dispatch(Actions.UPDATE_INITIATE(index, obj));
 
   }
 
   render() {
-    console.log(this.props.initiates);
     const sortedInitiates = this.sortInitiates([...this.props.initiates]);
     return(
       <Drawer showModal={this.state.showModal} toggleModalVisibility={this.toggleModalVisibility}>
