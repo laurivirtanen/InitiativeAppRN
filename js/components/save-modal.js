@@ -40,9 +40,10 @@ class SaveModal extends Component {
                                 <TextInput 
                                     autoCapitalize='words'
                                     autoFocus
+                                    
                                     defaultValue={this.state.nameInput}
                                     placeholder='Template name'
-                                    style={[styles.modalTextInput, {color: 'black'}]} 
+                                    style={[styles.modalTextInput, {color: 'black', marginLeft: 16, marginRight: 16}]} 
                                     onChangeText={text => this.changeName(text)} />
                                 <View style={{flexDirection: 'row', padding: 16, justifyContent: 'center'}}>
                                     <TouchableNativeFeedback

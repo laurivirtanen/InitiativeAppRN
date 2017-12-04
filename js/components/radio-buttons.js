@@ -24,8 +24,24 @@ export default class RadioButtonGroup extends Component {
     }
   
     handleSelectionChange = (index) => {
-      // console.log(index);
       this.setState({chosen: index}, () => this.props.callback(index));
+    }
+
+    selectStyle = (index) => {
+      let style;
+      if (index == this.state.chosen) {
+        style = styles.radioChosen;
+      } else {
+        style = styles.radioButton;
+      }
+
+      if (index == 0) {
+        return [style, styles.radioFirst];
+      } else if (index == this.props.buttonNames.length -1) {
+        return [style, styles.radioLast];
+      }
+      return style;
+      
     }
   
     render() {
@@ -33,11 +49,12 @@ export default class RadioButtonGroup extends Component {
         <View style={{flexDirection: "row"}}>
           {this.props.buttonNames.map((button, index)=> {
             // console.log(this.state.chosen);
+            
             return (
               <TouchableWithoutFeedback
                 key={index}
                 onPressOut={this.handleSelectionChange.bind(null, index)}>
-              <View style={index === this.state.chosen ? styles.radioChosen : styles.radioButton}><Text>{button}</Text></View>
+              <View style={this.selectStyle(index)}><Text style={styles.ButtonText}>{button}</Text></View>
               </TouchableWithoutFeedback>
             );
           })}

@@ -56,32 +56,37 @@ class Drawer extends Component {
         <View style={styles.drawerHeaderContainer}></View>
         <TouchableNativeFeedback
           onPressOut={this.saveTemplate} >
-          <View>
-            <Text style={{textAlign: 'center'}}>Save as template</Text>
+          <View style={styles.ButtonSecondary}>
+            <Text style={styles.ButtonTextSecondary}>Save as template</Text>
           </View>
         </TouchableNativeFeedback>
-        
-        <Picker 
-          ref={(templatePicker) => this.templatePicker = templatePicker} 
-          enabled={this.props.templates.length < 1 ? false : true}
-          onValueChange={item => this.changeTemplate(item)} >
-          {this.props.templates.length < 1 ? <Picker.Item label="None" /> : this.props.templates.map((item, index) => {
-            return (
-              <Picker.Item key={index}label={item.name} value={index} />
-            );
-          })}
-        </Picker>
+        <View style={{borderTopWidth: 1, borderBottomWidth: 1}}>
+          <Picker 
+            ref={(templatePicker) => this.templatePicker = templatePicker} 
+            enabled={this.props.templates.length < 1 ? false : true}
+            style={{marginLeft: 8}}
+            mode="dropdown"
+            prompt="Templates"
+            selectedValue={this.state.selectedTemplate}
+            onValueChange={item => this.changeTemplate(item)} >
+            {this.props.templates.length < 1 ? <Picker.Item label="None" /> : this.props.templates.map((item, index) => {
+              return (
+                <Picker.Item key={index} label={item.name} value={index} />
+              );
+            })}
+          </Picker>
+        </View>
         <View style={{flexDirection: 'row'}}>
           <TouchableNativeFeedback
             onPressOut={this.loadTemplate} >
-            <View style={{flex: 1}}>
-              <Text style={{textAlign: 'center'}}>Load</Text>
+            <View style={styles.ButtonSecondary}>
+              <Text style={styles.ButtonTextSecondary}>Load</Text>
             </View>
           </TouchableNativeFeedback>
           <TouchableNativeFeedback
             onPressOut={this.deleteTemplate} >
-            <View style={{flex: 1}}>
-              <Text style={{textAlign: 'center'}}>Delete</Text>
+            <View style={styles.ButtonSecondary}>
+              <Text style={styles.ButtonTextSecondary}>Delete</Text>
             </View>
           </TouchableNativeFeedback>
         </View>
@@ -114,8 +119,7 @@ class Drawer extends Component {
 const mapStateToProps = (state) => {
   return {
     initiates: state.initiates,
-    templates: state.templates,
-    nav: state.nav
+    templates: state.templates
   }
 }
 

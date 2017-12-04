@@ -42,9 +42,6 @@ class Home extends Component {
   static navigationOptions = { header: null } // No header displayed
   state = {showModal: false, highlightIndex: null}
   async componentDidMount() {
-    this.props.dispatch({
-      type: "LOAD_MOCKDATA"
-    });
     fetch("http://jani-test.azurewebsites.net/getmonsters", {
       method: 'GET',
       headers: {
@@ -144,7 +141,9 @@ class Home extends Component {
               
               <TouchableOpacity 
                 onPressOut={() => this.props.dispatch(Actions.ROLL_INITIATIVES(), this.state.highlightIndex=0)}>
-                  <Text style={{textAlignVertical:'center'}}>Roll for Initiative!</Text>
+                <View style={styles.ButtonRoll}>
+                  <Text style={styles.ButtonText}>Roll for Initiative!</Text>
+                </View>
               </TouchableOpacity>
               <TouchableNativeFeedback
                 onPressOut={() => this.state.highlightIndex == null ? null : this.setState({
@@ -159,12 +158,12 @@ class Home extends Component {
           </View>
           
         </View>
-        <View style={{alignItems: "center"}}>
-        <AdMobBanner
-          adSize="banner"
-          adUnitID="ca-app-pub-3940256099942544/6300978111"
-          testDevices={[AdMobBanner.simulatorId]}
-          onAdFailedToLoad={error => console.error(error)} />
+        <View style={{alignItems: 'center'}} >
+          <AdMobBanner
+            adSize="fullBanner"
+            adUnitID="ca-app-pub-3940256099942544/6300978111"
+            testDevices={[AdMobBanner.simulatorId]}
+            onAdFailedToLoad={error => console.error(error)} />
         </View>
       </Drawer>
     );

@@ -117,6 +117,7 @@ class AddModal extends Component {
   }
 
   render() {
+    console.log(this.state);
     const data = this._filterData(this.state.name);
     return (
       <Modal
@@ -129,9 +130,9 @@ class AddModal extends Component {
           onPress={() => this.props.toggleVisibility()}>
           <View style={styles.modalBase}>
             <TouchableWithoutFeedback onPress={() => { }}>
-              <View style={styles.modalContainer}>
-                <Text>Add new character</Text>
-                <View style={{ flexDirection: "row"}} >
+              <View style={[styles.modalContainer, styles.modalTmplPlugin]}>
+                <Text style={styles.modalTitle}>Add new character</Text>
+                <View style={{ flexDirection: "row", padding: 8}} >
                   <View style={{flex:5}}>
                     <Autocomplete
                       inputContainerStyle={styles.modalTextInputContainer}
@@ -158,23 +159,15 @@ class AddModal extends Component {
                       renderItem={data => (
                         <TouchableNativeFeedback
                           onPressOut={() => this.selectFromMonsters(data.index)} >
-                          <View>
-                            <Text>{data.name}</Text>
+                          <View style={{borderBottomWidth: 1}}>
+                            <Text style={{fontSize: 18}}>{data.name}</Text>
                           </View>
                         </TouchableNativeFeedback>
                       )} />
                   </View>
-                  {/* <TextInput
-                    style={styles.modalTextInput}
-                    returnKeyLabel="Character Name"
-                    autoCorrect={false}
-                    value={this.state.name}
-                    autoCapitalize="words"
-                    onChangeText={(value) => this.setState({ name: value })}
-                    placeholder="Character Name" /> */}
                   <TextInput
                     style={styles.modalNumberInput}
-                    defaultValue={(!!this.state.mod || this.state.mod == 0)? this.state.mod.toString() : ''}
+                    defaultValue={(this.state.mod != null || this.state.mod != undefined)? this.state.mod.toString() : ''}
                     keyboardType="numeric"
                     onEndEditing={(event) => this.setState({ mod: Number(event.nativeEvent.text) })}
                     placeholder="Mod" />
@@ -188,16 +181,16 @@ class AddModal extends Component {
                   <TouchableNativeFeedback
                     background={TouchableNativeFeedback.SelectableBackground()}
                     onPressOut={this.prepareDataForSaving} >
-                    <View style={styles.modalAddButton}>
-                      <Text>Add Character</Text>
+                    <View style={styles.ButtonPrimary}>
+                      <Text style={styles.ButtonText} >Add Character</Text>
                     </View>
                   </TouchableNativeFeedback>
                   <TouchableNativeFeedback
                     background={TouchableNativeFeedback.SelectableBackground()}
                     onPressOut={this.exitModal} >
                     <View
-                      style={styles.modalAddButton} >
-                      <Text>Cancel</Text>
+                      style={styles.ButtonSecondary} >
+                      <Text style={styles.ButtonTextSecondary}>Cancel</Text>
                     </View>
                   </TouchableNativeFeedback>
                 </View>

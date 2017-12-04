@@ -50,6 +50,7 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
     color:secondaryTextColor,
     textAlign:'center',
+    fontSize: 16,
     alignItems:'center',
   },
   initiateDropdown: {
@@ -60,9 +61,6 @@ export const styles = StyleSheet.create({
     padding: 2,
     borderBottomWidth: 1
   },
-  /* initiateKill: {
-    flex: 1
-  }, */
   // End List Printing
 
   //Header styles
@@ -71,8 +69,10 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: 'flex-start',
     justifyContent: "space-between",
-    borderBottomWidth:3,
+    borderBottomWidth:1,
+    borderBottomColor: "#4b3c2034",
     flex:0,
+    height: 60,
     backgroundColor:primaryColor,
   },
   
@@ -85,6 +85,11 @@ export const styles = StyleSheet.create({
     flexGrow:2,
     backgroundColor: primaryColor,
     color: primaryTextColor,
+    textShadowColor: primaryDarkColor,
+    textShadowOffset: {
+      width: 2,
+      height: 2
+    },
     fontSize: 30,
     textAlign: 'center',
     textAlignVertical: 'center',
@@ -93,7 +98,7 @@ export const styles = StyleSheet.create({
 
   //RADIOBUTTONS
   radioButton: {
-    backgroundColor: "#f00",
+    backgroundColor: secondaryDarkColor,
     height: 50,
     marginBottom: 8,
     marginTop: 8,
@@ -102,13 +107,21 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   radioChosen: {
-    backgroundColor: "#ff0",
+    backgroundColor: secondaryColor,
     height: 50,
     marginBottom: 8,
     marginTop: 8,
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1
+  },
+  radioFirst: {
+    borderTopLeftRadius: 8,
+    borderBottomLeftRadius: 8
+  },
+  radioLast: {
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8
   },
   // END RADIOBUTTONS
 
@@ -122,7 +135,6 @@ export const styles = StyleSheet.create({
   modalContainer:{
     backgroundColor: '#ffffff',
     borderRadius: 8, 
-    height: 300, 
     margin: 16, 
     padding: 16,
   },
@@ -143,7 +155,6 @@ export const styles = StyleSheet.create({
     padding: 16
   },
   modalTextInput: {
-    color: primaryTextColor,
     fontSize: 20,
     textAlignVertical: 'bottom',
     fontWeight: 'bold'
@@ -151,7 +162,6 @@ export const styles = StyleSheet.create({
   modalTextInputContainer:{
     flex:4,
     borderWidth: 0,
-    backgroundColor: secondaryLightColor
   },
   modalNumberInput:{
     flex: 1,
@@ -159,18 +169,20 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'bottom',
     fontWeight: 'bold',
-    color: primaryTextColor,
     fontSize: 20
     
   },
   modalRadioContainer:{
     display:'flex',
     alignContent:'center',
+    padding: 16
   },
 
   modalAddCharacter:{
     flexDirection:'row',
-    marginTop:20,
+    padding: 16,
+    justifyContent: 'center',
+    marginTop:10,
   },
   modalAddButton:{ 
     justifyContent: 'center',
@@ -204,22 +216,33 @@ export const styles = StyleSheet.create({
   },
   drawerHeaderContainer:{
     height: 100,
-    backgroundColor: secondaryColor
+    backgroundColor: secondaryLightColor
   },
 
   //home
   rollContainer:{
     bottom: 0,
-    flex: 1,
+    flex: 0,
+    height: 60,
     flexDirection: 'row',
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:primaryColor
+    backgroundColor:primaryColor,
+    borderTopColor: "#4b3c2034",
+    borderTopWidth: 1
   },
   mainContainer: {
     flex: 1,
     flexDirection: 'row',
     backgroundColor: secondaryLightColor
+  },
+  ButtonRoll: {
+    padding: 12,
+    backgroundColor: secondaryColor,
+    marginLeft: 8,
+    borderRadius: 8,
+    borderColor: secondaryDarkColor,
+    borderWidth: 1
   }
 
 

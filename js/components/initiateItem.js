@@ -27,6 +27,7 @@ const InitiateItem = (props) => {
             source={initiate.isPC ? require("../../images/pc_light.png") : require("../../images/dragon_light.png")}/>
           <Text style={props.highlight ? [styles.initiateName, styles.initiateHighLight]  : styles.initiateName}>{initiate.name}</Text>
           <TextInput
+            underlineColorAndroid="transparent"
             style={styles.initiateRoll}
             maxLength={2}
             multiline={false}
