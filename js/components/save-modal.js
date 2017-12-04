@@ -14,7 +14,7 @@ class SaveModal extends Component {
             );
             this.setState({nameInput: ''});
             this.props.toggleVisibility();
-            this.props.drawer.closeDrawer();
+            this.props.closeDrawer();
         }
         
     }

@@ -85,7 +85,6 @@ class AddModal extends Component {
     }
     
     if (returnData.length == 1 && returnData[0].name === query) {
-      //console.log(returnData[0].name);
       return [];
     }
     return returnData;
@@ -93,7 +92,6 @@ class AddModal extends Component {
   
   selectFromMonsters = (index) => {
     let monster = this.props.monsters[index];
-    console.log(monster);
     this.setState({
       name: monster.name,
       adv: monster.adv,
@@ -117,7 +115,6 @@ class AddModal extends Component {
   }
 
   render() {
-    console.log(this.state);
     const data = this._filterData(this.state.name);
     return (
       <Modal

@@ -15,14 +15,14 @@ class TmplModal extends Component {
           );
         }
         this.props.toggleVisibility();
-        this.props.drawer.closeDrawer();
+        this.props.closeDrawer();
     }
     deleteTemplate = () => {
         this.props.dispatch(
             TmplActions.DELETE_TEMPLATE(this.props.templateIndex)
         );
         this.props.toggleVisibility();
-        this.props.drawer.closeDrawer();
+        this.props.closeDrawer();
     }
     exitModal = () => {
         this.props.toggleVisibility();

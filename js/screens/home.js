@@ -41,31 +41,6 @@ componentDidMount() {
 class Home extends Component {
   static navigationOptions = { header: null } // No header displayed
   state = {showModal: false, highlightIndex: null}
-  async componentDidMount() {
-    fetch("http://jani-test.azurewebsites.net/getmonsters", {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    }).then((response) => {
-      let monsters = JSON.parse(response._bodyText);
-      this.props.dispatch(
-        Actions.LOAD_MONSTERS(monsters)
-      );
-    }).catch(err => console.log(err));
-    try {
-      let templatesRaw = await AsyncStorage.getItem("InitiativeTemplates");
-      let templates = JSON.parse(templatesRaw);
-      if (!!templates) {
-        this.props.dispatch(
-          TmplActions.LOAD_TEMPLATES(templates)
-        );
-      }
-    } catch (error) {
-      console.log(error);
-    }
-    
-  }
   
   sortInitiates = (arr) => {
     if ((arr.length == 0)) {
@@ -98,34 +73,16 @@ class Home extends Component {
   }
 
   render() {
-   /*  const drawerView = (
-      <View style={{
-        flex: 1,
-        backgroundColor: "#ff0000" }}>
-        <Text>I'm in the drawer!</Text>
-      </View>
-    ); */
-    //console.log([...this.props.initiates.init]);
     const sortedInitiates = this.sortInitiates([...this.props.initiates]);
- 
-    /* <AddModal showModal={this.state.showModal} toggleVisibility={this.toggleModalVisibility} />
-    <Header drawer={this.drawer} save={this.toggleModalVisibility} />
-    */
     return(
       <Drawer showModal={this.state.showModal} toggleModalVisibility={this.toggleModalVisibility}>
-        
         <View style={styles.mainContainer}>
-          
-        
           <View style={{flex: 1, flexDirection: "column"}}>
-            
             <View style={{flex: 5}}>
-              
               <ScrollView >
                 { (sortedInitiates.length > 0) ? sortedInitiates.map((item, index) => {
                     return <InitiateItem initiate={item} key={item.id} initiative={item.init} highlight={index==this.state.highlightIndex? true: false}/> // prop initiative is necessary to force update on InitiateItem!
                   }): null}
-                
               </ScrollView>
             </View>
             <View style={styles.rollContainer}>

@@ -41,7 +41,7 @@ const InitiateItem = (props) => {
           <TextInput 
             keyboardType="numeric" 
             defaultValue={initiate.mod.toString()} 
-            style={{flex: 1, textAlign: 'center'}}
+            style={{flex: 1, textAlign: 'center', color: 'white'}}
             onEndEditing={(event) => {
               dispatch(
                 UPDATE_INITIATE(initiate.id, {mod: Number(event.nativeEvent.text)})
@@ -51,7 +51,7 @@ const InitiateItem = (props) => {
 
         <Picker 
           selectedValue={initiate.adv} 
-          style={{flex: 2}}
+          style={{flex: 2, color: 'white'}}
           onValueChange={(item) => {
             dispatch(
               UPDATE_INITIATE(initiate.id, {adv: item})

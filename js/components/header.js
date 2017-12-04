@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { styles } from '../styles/styles';
 export default class Header extends Component {
+  
   render() {
     return (
       <View style={ styles.headerContainer }>
@@ -16,7 +17,7 @@ export default class Header extends Component {
           style={styles.headerButton}
           useForeground
           background={TouchableNativeFeedback.Ripple('white')}
-          onPress={() => this.props.drawer.openDrawer()}>
+          onPress={() => this.props.openDrawer()}>
           <Image
             style={{ height: 30, width: 30, alignSelf: 'center', marginLeft: 8 }}
             source={require("../../images/hamburger.png")} />

@@ -8,6 +8,7 @@ const secondaryLightColor = '#a4a4a4';
 const secondaryDarkColor = '#494949';
 const primaryTextColor = '#ffffff';
 const secondaryTextColor = '#ffffff';
+const dndTextColor = "#58170D";
 export const styles = StyleSheet.create({
 
 
@@ -239,7 +240,6 @@ export const styles = StyleSheet.create({
   ButtonRoll: {
     padding: 12,
     backgroundColor: secondaryColor,
-    marginLeft: 8,
     borderRadius: 8,
     borderColor: secondaryDarkColor,
     borderWidth: 1

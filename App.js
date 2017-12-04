@@ -34,7 +34,7 @@ class App extends Component {
   
   onBackPress = () => {
     const { dispatch, nav } = this.props;
-    if (nav.index === 0) {
+    if (nav.index === 1 || nav.index === 0) {
       return false;
     }
     dispatch(NavigationActions.back());

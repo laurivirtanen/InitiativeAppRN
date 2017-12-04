@@ -49,6 +49,12 @@ class Drawer extends Component {
   toggleSaveModalVisibility = () => {
     this.setState({showSaveModal: !this.state.showSaveModal});
   }
+  openDrawer = () => {
+    this.drawer.openDrawer();
+  }
+  closeDrawer = () => {
+    this.drawer.closeDrawer();
+  }
 
   render() {
     const drawerView = (
@@ -104,12 +110,14 @@ class Drawer extends Component {
           toggleVisibility={this.toggleTmplModalVisibility} 
           action={this.state.action} 
           templateIndex={this.state.selectedTemplate} 
-          drawer={this.drawer} />
+          openDrawer={this.openDrawer}
+          closeDrawer={this.closeDrawer} />
         <SaveModal 
           showModal={this.state.showSaveModal} 
           toggleVisibility={this.toggleSaveModalVisibility} 
-          drawer={this.drawer} />
-        <Header drawer={this.drawer} save={this.props.toggleModalVisibility} />
+          openDrawer={this.openDrawer}
+          closeDrawer={this.closeDrawer} />
+        <Header openDrawer={this.openDrawer} save={this.props.toggleModalVisibility} />
         {this.props.children}
       </DrawerLayoutAndroid>
     );
