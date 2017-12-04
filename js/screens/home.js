@@ -72,7 +72,16 @@ class Home extends Component {
     this.setState({showModal: !this.state.showModal});
   }
 
+  changeInitiativeManually = (value, index) => {
+    console.log(value);
+    console.log(index);
+    let obj = {init: Number(value)}
+    this.props.dispatch(Actions.UPDATE_INITIATE(index, obj));
+
+  }
+
   render() {
+    console.log(this.props.initiates);
     const sortedInitiates = this.sortInitiates([...this.props.initiates]);
     return(
       <Drawer showModal={this.state.showModal} toggleModalVisibility={this.toggleModalVisibility}>
@@ -81,7 +90,7 @@ class Home extends Component {
             <View style={{flex: 5}}>
               <ScrollView >
                 { (sortedInitiates.length > 0) ? sortedInitiates.map((item, index) => {
-                    return <InitiateItem initiate={item} key={item.id} initiative={item.init} highlight={index==this.state.highlightIndex? true: false}/> // prop initiative is necessary to force update on InitiateItem!
+                    return <InitiateItem initiate={item} key={item.id} initiative={item.init} highlight={index==this.state.highlightIndex? true: false} changeInitiative={this.changeInitiativeManually}/> // prop initiative is necessary to force update on InitiateItem!
                   }): null}
               </ScrollView>
             </View>

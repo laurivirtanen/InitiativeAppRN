@@ -31,6 +31,7 @@ const InitiateItem = (props) => {
             style={styles.initiateRoll}
             maxLength={2}
             multiline={false}
+            onEndEditing={(event) => props.changeInitiative(event.nativeEvent.text, props.initiate.id)}
             keyboardType='numeric' >{props.initiative}</TextInput>
         </View>
       </TouchableOpacity>

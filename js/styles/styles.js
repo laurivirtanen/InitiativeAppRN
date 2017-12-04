@@ -37,8 +37,6 @@ export const styles = StyleSheet.create({
     paddingLeft: 5,
   }, 
   initiateHighLight:{
-    fontSize:30,
-    height: 50,
     backgroundColor: '#fff2'
   },
 
