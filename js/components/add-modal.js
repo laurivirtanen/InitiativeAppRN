@@ -166,7 +166,7 @@ class AddModal extends Component {
                     style={styles.modalNumberInput}
                     defaultValue={(this.state.mod != null || this.state.mod != undefined)? this.state.mod.toString() : ''}
                     keyboardType="numeric"
-                    onEndEditing={(event) => this.setState({ mod: Number(event.nativeEvent.text) })}
+                    onChangeText={(text) => this.setState({ mod: Number(text) })}
                     placeholder="Mod" />
                 </View>
                 <View style={styles.modalRadioContainer}>
