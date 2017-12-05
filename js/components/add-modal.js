@@ -120,7 +120,7 @@ class AddModal extends Component {
       <Modal
         animationType="fade"
         transparent={true}
-        visible={this.props.showModal}
+        visible={this.props.showModal} 
         onRequestClose={() => this.exitModal()} >
         <TouchableWithoutFeedback
           style={{ backgroundColor: "#00000060" }}

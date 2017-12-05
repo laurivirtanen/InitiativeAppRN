@@ -22,6 +22,10 @@ export const styles = StyleSheet.create({
     backgroundColor: secondaryDarkColor,
     borderTopWidth: 1,
   },
+  ImagePrimary: {
+    marginLeft: 8,
+    marginRight: 8,
+  },
   initiateName: {
     flexGrow: 7,
     flex: 1,
@@ -32,25 +36,28 @@ export const styles = StyleSheet.create({
     textAlignVertical: 'center',
     overflow: 'hidden',
     fontSize: 20,
-    color:secondaryTextColor,
-    fontWeight: 'bold',
+    color: 'black',
+    fontFamily: 'ScalySans',
     paddingLeft: 5,
-  }, 
-  initiateHighLight:{
-    backgroundColor: '#fff2'
+
+  },
+  initiateHighLight: {
+    backgroundColor: '#fff2',
+    elevation: 10,
   },
 
-  initiateImage:{
-    flex:0,
+  initiateImage: {
+    flex: 0,
     flexGrow: 1
   },
   initiateRoll: {
     backgroundColor: secondaryDarkColor,
+    flex: 0,
     flexGrow: 1,
-    color:secondaryTextColor,
-    textAlign:'center',
+    color: primaryTextColor,
+    textAlign: 'center',
     fontSize: 16,
-    alignItems:'center',
+    alignItems: 'center',
   },
   initiateDropdown: {
     flexDirection: 'row',
@@ -58,40 +65,45 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: 'center',
     padding: 2,
-    borderBottomWidth: 1
+  },
+  dropdownText: {
+    fontFamily: 'ScalySansItalic',
+    fontSize: 16,
   },
   // End List Printing
 
   //Header styles
-  headerContainer:{
+  headerContainer: {
     display: 'flex',
     flexDirection: "row",
     alignContent: 'flex-start',
     justifyContent: "space-between",
-    borderBottomWidth:1,
+    borderBottomWidth: 1,
     borderBottomColor: "#4b3c2034",
-    flex:0,
+    flex: 0,
     height: 60,
-    backgroundColor:primaryColor,
+    backgroundColor: primaryColor,
+    elevation: 5
   },
-  
-  headerButton:{
+
+  headerButton: {
     margin: 0,
     backgroundColor: secondaryColor,
-    alignContent:'center',
+    alignContent: 'center',
   },
-  headerText:{
-    flexGrow:2,
+  headerText: {
+    flexGrow: 2,
     backgroundColor: primaryColor,
-    color: primaryTextColor,
+    color: dndTextColor,
     textShadowColor: primaryDarkColor,
     textShadowOffset: {
       width: 2,
       height: 2
     },
-    fontSize: 30,
+    fontSize: 36,
     textAlign: 'center',
     textAlignVertical: 'center',
+    fontFamily: 'MrEavesSmallCaps',
   },
 
 
@@ -127,14 +139,14 @@ export const styles = StyleSheet.create({
 
 
   //MODAL STYLES
-  modalBase:{
-    flex:1,
-    backgroundColor:"#00000090",
+  modalBase: {
+    flex: 1,
+    backgroundColor: "#00000090",
   },
-  modalContainer:{
+  modalContainer: {
     backgroundColor: '#ffffff',
-    borderRadius: 8, 
-    margin: 16, 
+    borderRadius: 8,
+    margin: 16,
     padding: 16,
   },
   modalTmplPlugin: {
@@ -158,36 +170,36 @@ export const styles = StyleSheet.create({
     textAlignVertical: 'bottom',
     fontWeight: 'bold'
   },
-  modalTextInputContainer:{
-    flex:4,
+  modalTextInputContainer: {
+    flex: 4,
     borderWidth: 0,
   },
-  modalNumberInput:{
+  modalNumberInput: {
     flex: 1,
     right: 0,
     textAlign: 'center',
     textAlignVertical: 'bottom',
     fontWeight: 'bold',
     fontSize: 20
-    
+
   },
-  modalRadioContainer:{
-    display:'flex',
-    alignContent:'center',
+  modalRadioContainer: {
+    display: 'flex',
+    alignContent: 'center',
     padding: 16
   },
 
-  modalAddCharacter:{
-    flexDirection:'row',
+  modalAddCharacter: {
+    flexDirection: 'row',
     padding: 16,
     justifyContent: 'center',
-    marginTop:10,
+    marginTop: 10,
   },
-  modalAddButton:{ 
+  modalAddButton: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 2, 
-    height: 40, 
+    flex: 2,
+    height: 40,
   },
   ButtonPrimary: {
     padding: 16,
@@ -201,50 +213,56 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
     borderRadius: 8,
   },
-  ButtonText: {
-    color: primaryTextColor
+  ButtonRoll: {
+    backgroundColor: primaryColor,
+    height: '100%',
+    alignContent: 'center',
   },
+
+  ButtonText: {
+    fontSize: 16,
+    fontFamily: 'ScalySansCaps',
+    color: primaryTextColor,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    justifyContent: 'center'
+  },
+
   ButtonTextSecondary: {
     color: secondaryColor
   },
 
+
   //DRAWER
-  drawerContainer:{
+  drawerContainer: {
     flex: 1,
     //backgroundColor: secondaryColor,
   },
-  drawerHeaderContainer:{
+  drawerHeaderContainer: {
     height: 100,
     backgroundColor: secondaryLightColor
   },
 
   //home
-  rollContainer:{
-    bottom: 0,
-    flex: 0,
-    height: 60,
-    flexDirection: 'row',
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor:primaryColor,
-    borderTopColor: "#4b3c2034",
-    borderTopWidth: 1
-  },
   mainContainer: {
     flex: 1,
     flexDirection: 'row',
     backgroundColor: secondaryLightColor
   },
-  ButtonRoll: {
-    padding: 12,
-    backgroundColor: secondaryColor,
-    borderRadius: 8,
-    borderColor: secondaryDarkColor,
-    borderWidth: 1
-  }
 
-
-
+  rollButtonText: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    height: '100%',
+    fontSize: 24,
+    textShadowColor: primaryDarkColor,
+    textShadowOffset: {
+      width: 2,
+      height: 2
+    },
+    color: dndTextColor,
+    fontFamily:'ScalySansCaps',
+  },
 
 
 

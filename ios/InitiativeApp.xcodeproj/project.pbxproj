@@ -37,6 +37,28 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		A2EE54A5222B47FBBA06F03B /* libRNAdMobManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C39B114D878E4EA3BBC6D3C2 /* libRNAdMobManager.a */; };
+		C062A7A99FF44099A252B52D /* Bookinsanity.otf in Resources */ = {isa = PBXBuildFile; fileRef = ACE2B5049FF54BB79BD81947 /* Bookinsanity.otf */; };
+		EC48CCFB118743FBA116E112 /* BookinsanityBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE9437EAE65948BC8FF730A1 /* BookinsanityBold.otf */; };
+		AE5F323F403C4ACC8B0C4E43 /* BookinsanityBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05FF28659C07465FB7BF8147 /* BookinsanityBoldItalic.otf */; };
+		D755259D85DB46E4ACE8541E /* BookinsanityItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90DE34276B444D45AEED6407 /* BookinsanityItalic.otf */; };
+		42082879406C4252A5C1187B /* MrEavesSmallCaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6114EF600244ED6A782D73F /* MrEavesSmallCaps.otf */; };
+		7434AD9444C74FF7909D7B77 /* NodestoCapsCondensed.otf in Resources */ = {isa = PBXBuildFile; fileRef = 28AD4B03EB8F45DDB187D046 /* NodestoCapsCondensed.otf */; };
+		A561F150F8C144A3922FDC0E /* NodestoCapsCondensedBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 136F3135F3BE4D7692ED1433 /* NodestoCapsCondensedBold.otf */; };
+		A00EF4B798684EA7BEC7F8BB /* NodestoCapsCondensedBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 915B7A4CB4BC46BCB42D293D /* NodestoCapsCondensedBoldItalic.otf */; };
+		B30FD384DE824B14932E72DF /* NodestoCapsCondensedItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D2D71CE1B3543FCBA088906 /* NodestoCapsCondensedItalic.otf */; };
+		1FDA9F84A4594607966D06A9 /* ScalySans.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE0D727DC4484288BEA92317 /* ScalySans.otf */; };
+		A3B24601443240E9877F899C /* ScalySansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B3D62850D765438DB8087066 /* ScalySansBold.otf */; };
+		4C7D980B6E954C39B8658585 /* ScalySansBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 330E9B91047E4F37886E8B4B /* ScalySansBoldItalic.otf */; };
+		4C6E0E2C114B4D7C9B4C814B /* ScalySansCaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FBBA403F6D84BD9B1AE3137 /* ScalySansCaps.otf */; };
+		075E8FE4816E46D48D739873 /* ScalySansCapsBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC165AD34EB544CEB58F23C8 /* ScalySansCapsBold.otf */; };
+		D4587F28707D49BE92E6CCEC /* ScalySansCapsBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7AAFFDCF1A87422DBF8E9C0C /* ScalySansCapsBoldItalic.otf */; };
+		47CF72714C62425982903F68 /* ScalySansCapsItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 55BDC4B439D14839B73A329F /* ScalySansCapsItalic.otf */; };
+		7F9BA97CA8114F45AE64056A /* ScalySansItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD9B2208EFC9412D8130F920 /* ScalySansItalic.otf */; };
+		78D69E42E9F44D07A3329BA9 /* SolberaImitation.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC8D760478394C7094463E27 /* SolberaImitation.otf */; };
+		83BD560AFD524B47BE95A3B8 /* ZatannaMisdirection.otf in Resources */ = {isa = PBXBuildFile; fileRef = 140349D8DA154B8C98ECDB67 /* ZatannaMisdirection.otf */; };
+		B872752D554A49E9A1477B33 /* ZatannaMisdirectionBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1492E07ACDAD43128FC2E50B /* ZatannaMisdirectionBold.otf */; };
+		2CBF3E5A9C2747C2B39E8109 /* ZatannaMisdirectionBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A80C6E4025714FA69277C06B /* ZatannaMisdirectionBoldItalic.otf */; };
+		CECAFBE7C7934580B292E772 /* ZatannaMisdirectionItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2D198A96BECC4133BA589E54 /* ZatannaMisdirectionItalic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +288,28 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		853C6CE5F90E4A8888DCEB8B /* RNAdMobManager.xcodeproj */ = {isa = PBXFileReference; name = "RNAdMobManager.xcodeproj"; path = "../node_modules/react-native-admob/ios/RNAdMobManager.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		C39B114D878E4EA3BBC6D3C2 /* libRNAdMobManager.a */ = {isa = PBXFileReference; name = "libRNAdMobManager.a"; path = "libRNAdMobManager.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		ACE2B5049FF54BB79BD81947 /* Bookinsanity.otf */ = {isa = PBXFileReference; name = "Bookinsanity.otf"; path = "../assets/fonts/Bookinsanity.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FE9437EAE65948BC8FF730A1 /* BookinsanityBold.otf */ = {isa = PBXFileReference; name = "BookinsanityBold.otf"; path = "../assets/fonts/BookinsanityBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		05FF28659C07465FB7BF8147 /* BookinsanityBoldItalic.otf */ = {isa = PBXFileReference; name = "BookinsanityBoldItalic.otf"; path = "../assets/fonts/BookinsanityBoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		90DE34276B444D45AEED6407 /* BookinsanityItalic.otf */ = {isa = PBXFileReference; name = "BookinsanityItalic.otf"; path = "../assets/fonts/BookinsanityItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D6114EF600244ED6A782D73F /* MrEavesSmallCaps.otf */ = {isa = PBXFileReference; name = "MrEavesSmallCaps.otf"; path = "../assets/fonts/MrEavesSmallCaps.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		28AD4B03EB8F45DDB187D046 /* NodestoCapsCondensed.otf */ = {isa = PBXFileReference; name = "NodestoCapsCondensed.otf"; path = "../assets/fonts/NodestoCapsCondensed.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		136F3135F3BE4D7692ED1433 /* NodestoCapsCondensedBold.otf */ = {isa = PBXFileReference; name = "NodestoCapsCondensedBold.otf"; path = "../assets/fonts/NodestoCapsCondensedBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		915B7A4CB4BC46BCB42D293D /* NodestoCapsCondensedBoldItalic.otf */ = {isa = PBXFileReference; name = "NodestoCapsCondensedBoldItalic.otf"; path = "../assets/fonts/NodestoCapsCondensedBoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8D2D71CE1B3543FCBA088906 /* NodestoCapsCondensedItalic.otf */ = {isa = PBXFileReference; name = "NodestoCapsCondensedItalic.otf"; path = "../assets/fonts/NodestoCapsCondensedItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BE0D727DC4484288BEA92317 /* ScalySans.otf */ = {isa = PBXFileReference; name = "ScalySans.otf"; path = "../assets/fonts/ScalySans.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B3D62850D765438DB8087066 /* ScalySansBold.otf */ = {isa = PBXFileReference; name = "ScalySansBold.otf"; path = "../assets/fonts/ScalySansBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		330E9B91047E4F37886E8B4B /* ScalySansBoldItalic.otf */ = {isa = PBXFileReference; name = "ScalySansBoldItalic.otf"; path = "../assets/fonts/ScalySansBoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0FBBA403F6D84BD9B1AE3137 /* ScalySansCaps.otf */ = {isa = PBXFileReference; name = "ScalySansCaps.otf"; path = "../assets/fonts/ScalySansCaps.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CC165AD34EB544CEB58F23C8 /* ScalySansCapsBold.otf */ = {isa = PBXFileReference; name = "ScalySansCapsBold.otf"; path = "../assets/fonts/ScalySansCapsBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7AAFFDCF1A87422DBF8E9C0C /* ScalySansCapsBoldItalic.otf */ = {isa = PBXFileReference; name = "ScalySansCapsBoldItalic.otf"; path = "../assets/fonts/ScalySansCapsBoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		55BDC4B439D14839B73A329F /* ScalySansCapsItalic.otf */ = {isa = PBXFileReference; name = "ScalySansCapsItalic.otf"; path = "../assets/fonts/ScalySansCapsItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DD9B2208EFC9412D8130F920 /* ScalySansItalic.otf */ = {isa = PBXFileReference; name = "ScalySansItalic.otf"; path = "../assets/fonts/ScalySansItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EC8D760478394C7094463E27 /* SolberaImitation.otf */ = {isa = PBXFileReference; name = "SolberaImitation.otf"; path = "../assets/fonts/SolberaImitation.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		140349D8DA154B8C98ECDB67 /* ZatannaMisdirection.otf */ = {isa = PBXFileReference; name = "ZatannaMisdirection.otf"; path = "../assets/fonts/ZatannaMisdirection.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1492E07ACDAD43128FC2E50B /* ZatannaMisdirectionBold.otf */ = {isa = PBXFileReference; name = "ZatannaMisdirectionBold.otf"; path = "../assets/fonts/ZatannaMisdirectionBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A80C6E4025714FA69277C06B /* ZatannaMisdirectionBoldItalic.otf */ = {isa = PBXFileReference; name = "ZatannaMisdirectionBoldItalic.otf"; path = "../assets/fonts/ZatannaMisdirectionBoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2D198A96BECC4133BA589E54 /* ZatannaMisdirectionItalic.otf */ = {isa = PBXFileReference; name = "ZatannaMisdirectionItalic.otf"; path = "../assets/fonts/ZatannaMisdirectionItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,6 +528,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* InitiativeAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				6C8BAF458C714C108F292161 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -508,6 +553,36 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		6C8BAF458C714C108F292161 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				ACE2B5049FF54BB79BD81947 /* Bookinsanity.otf */,
+				FE9437EAE65948BC8FF730A1 /* BookinsanityBold.otf */,
+				05FF28659C07465FB7BF8147 /* BookinsanityBoldItalic.otf */,
+				90DE34276B444D45AEED6407 /* BookinsanityItalic.otf */,
+				D6114EF600244ED6A782D73F /* MrEavesSmallCaps.otf */,
+				28AD4B03EB8F45DDB187D046 /* NodestoCapsCondensed.otf */,
+				136F3135F3BE4D7692ED1433 /* NodestoCapsCondensedBold.otf */,
+				915B7A4CB4BC46BCB42D293D /* NodestoCapsCondensedBoldItalic.otf */,
+				8D2D71CE1B3543FCBA088906 /* NodestoCapsCondensedItalic.otf */,
+				BE0D727DC4484288BEA92317 /* ScalySans.otf */,
+				B3D62850D765438DB8087066 /* ScalySansBold.otf */,
+				330E9B91047E4F37886E8B4B /* ScalySansBoldItalic.otf */,
+				0FBBA403F6D84BD9B1AE3137 /* ScalySansCaps.otf */,
+				CC165AD34EB544CEB58F23C8 /* ScalySansCapsBold.otf */,
+				7AAFFDCF1A87422DBF8E9C0C /* ScalySansCapsBoldItalic.otf */,
+				55BDC4B439D14839B73A329F /* ScalySansCapsItalic.otf */,
+				DD9B2208EFC9412D8130F920 /* ScalySansItalic.otf */,
+				EC8D760478394C7094463E27 /* SolberaImitation.otf */,
+				140349D8DA154B8C98ECDB67 /* ZatannaMisdirection.otf */,
+				1492E07ACDAD43128FC2E50B /* ZatannaMisdirectionBold.otf */,
+				A80C6E4025714FA69277C06B /* ZatannaMisdirectionBoldItalic.otf */,
+				2D198A96BECC4133BA589E54 /* ZatannaMisdirectionItalic.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -878,6 +953,28 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				C062A7A99FF44099A252B52D /* Bookinsanity.otf in Resources */,
+				EC48CCFB118743FBA116E112 /* BookinsanityBold.otf in Resources */,
+				AE5F323F403C4ACC8B0C4E43 /* BookinsanityBoldItalic.otf in Resources */,
+				D755259D85DB46E4ACE8541E /* BookinsanityItalic.otf in Resources */,
+				42082879406C4252A5C1187B /* MrEavesSmallCaps.otf in Resources */,
+				7434AD9444C74FF7909D7B77 /* NodestoCapsCondensed.otf in Resources */,
+				A561F150F8C144A3922FDC0E /* NodestoCapsCondensedBold.otf in Resources */,
+				A00EF4B798684EA7BEC7F8BB /* NodestoCapsCondensedBoldItalic.otf in Resources */,
+				B30FD384DE824B14932E72DF /* NodestoCapsCondensedItalic.otf in Resources */,
+				1FDA9F84A4594607966D06A9 /* ScalySans.otf in Resources */,
+				A3B24601443240E9877F899C /* ScalySansBold.otf in Resources */,
+				4C7D980B6E954C39B8658585 /* ScalySansBoldItalic.otf in Resources */,
+				4C6E0E2C114B4D7C9B4C814B /* ScalySansCaps.otf in Resources */,
+				075E8FE4816E46D48D739873 /* ScalySansCapsBold.otf in Resources */,
+				D4587F28707D49BE92E6CCEC /* ScalySansCapsBoldItalic.otf in Resources */,
+				47CF72714C62425982903F68 /* ScalySansCapsItalic.otf in Resources */,
+				7F9BA97CA8114F45AE64056A /* ScalySansItalic.otf in Resources */,
+				78D69E42E9F44D07A3329BA9 /* SolberaImitation.otf in Resources */,
+				83BD560AFD524B47BE95A3B8 /* ZatannaMisdirection.otf in Resources */,
+				B872752D554A49E9A1477B33 /* ZatannaMisdirectionBold.otf in Resources */,
+				2CBF3E5A9C2747C2B39E8109 /* ZatannaMisdirectionBoldItalic.otf in Resources */,
+				CECAFBE7C7934580B292E772 /* ZatannaMisdirectionItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

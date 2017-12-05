@@ -39,9 +39,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSAppTransportSecurity</key>
-	<!--See http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/ -->
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
@@ -52,5 +51,30 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Bookinsanity.otf</string>
+		<string>BookinsanityBold.otf</string>
+		<string>BookinsanityBoldItalic.otf</string>
+		<string>BookinsanityItalic.otf</string>
+		<string>MrEavesSmallCaps.otf</string>
+		<string>NodestoCapsCondensed.otf</string>
+		<string>NodestoCapsCondensedBold.otf</string>
+		<string>NodestoCapsCondensedBoldItalic.otf</string>
+		<string>NodestoCapsCondensedItalic.otf</string>
+		<string>ScalySans.otf</string>
+		<string>ScalySansBold.otf</string>
+		<string>ScalySansBoldItalic.otf</string>
+		<string>ScalySansCaps.otf</string>
+		<string>ScalySansCapsBold.otf</string>
+		<string>ScalySansCapsBoldItalic.otf</string>
+		<string>ScalySansCapsItalic.otf</string>
+		<string>ScalySansItalic.otf</string>
+		<string>SolberaImitation.otf</string>
+		<string>ZatannaMisdirection.otf</string>
+		<string>ZatannaMisdirectionBold.otf</string>
+		<string>ZatannaMisdirectionBoldItalic.otf</string>
+		<string>ZatannaMisdirectionItalic.otf</string>
+	</array>
 </dict>
 </plist>

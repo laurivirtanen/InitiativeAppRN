@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { 
+import {
   View,
   Text,
   Button,
@@ -40,24 +40,24 @@ componentDidMount() {
 
 class Home extends Component {
   static navigationOptions = { header: null } // No header displayed
-  state = {showModal: false, highlightIndex: null}
-  
+  state = { showModal: false, highlightIndex: null }
+
   sortInitiates = (arr) => {
     if ((arr.length == 0)) {
       return [];
     }
-    return arr.sort(function(a,b) {
-			if (a.init === null || b.init === null){
-				return 0;
-			}
-			if (b.init === a.init) {
+    return arr.sort(function (a, b) {
+      if (a.init === null || b.init === null) {
+        return 0;
+      }
+      if (b.init === a.init) {
 				/* if (b.mod === a.mod) {
 						return (RollD20() > 10) ? -1 : 1;
 				} */
-				return b.mod - a.mod;
-			}
-			return b.init - a.init;
-		});
+        return b.mod - a.mod;
+      }
+      return b.init - a.init;
+    });
   }
 
   // Save this for later use!
@@ -66,59 +66,61 @@ class Home extends Component {
   }
 
   toggleModalVisibility = () => {
-    this.setState({showModal: !this.state.showModal});
+    this.setState({ showModal: !this.state.showModal });
   }
 
   changeInitiativeManually = (value, index) => {
-    let obj = {init: Number(value)}
+    let obj = { init: Number(value) }
     this.props.dispatch(Actions.UPDATE_INITIATE(index, obj));
 
   }
 
   render() {
     const sortedInitiates = this.sortInitiates([...this.props.initiates]);
-    return(
+    return (
       <Drawer showModal={this.state.showModal} toggleModalVisibility={this.toggleModalVisibility}>
         <View style={styles.mainContainer}>
-          <View style={{flex: 1, flexDirection: "column"}}>
-            <View style={{flex: 5}}>
+          <View style={{ flex: 1, flexDirection: "column" }}>
+            <View style={{ flex: 5 }}>
               <ScrollView >
-                { (sortedInitiates.length > 0) ? sortedInitiates.map((item, index) => {
-                    return <InitiateItem initiate={item} key={item.id} initiative={item.init} highlight={index==this.state.highlightIndex? true: false} changeInitiative={this.changeInitiativeManually}/> // prop initiative is necessary to force update on InitiateItem!
-                  }): null}
+                {(sortedInitiates.length > 0) ? sortedInitiates.map((item, index) => {
+                  return <InitiateItem initiate={item} key={item.id} initiative={item.init} highlight={index == this.state.highlightIndex ? true : false} changeInitiative={this.changeInitiativeManually} /> // prop initiative is necessary to force update on InitiateItem!
+                }) : null}
               </ScrollView>
             </View>
-            <View style={styles.rollContainer}>
+            <View style={[styles.headerContainer, { bottom: 0 }]}>
               <TouchableNativeFeedback
+                style={styles.headerButton}
                 onPress={() => this.state.highlightIndex == null ? null : this.setState({
                   highlightIndex: this.state.highlightIndex <= 0 ? this.state.highlightIndex = 0 : --this.state.highlightIndex
                 })}
               >
-              <Image
-                style={{ height: 64, width: 64 }}
+                <Image
+                  style={{ height: 64, width: 64 }}
                   source={this.state.highlightIndex == null ? require("../../images/d20.png") : require("../../images/leftArrow.png")} />
               </TouchableNativeFeedback>
-              
-              <TouchableOpacity 
-                onPressOut={() => this.props.dispatch(Actions.ROLL_INITIATIVES(), this.state.highlightIndex=0)}>
+
+              <TouchableOpacity
+                onPressOut={() => this.props.dispatch(Actions.ROLL_INITIATIVES(), this.state.highlightIndex = 0)}>
                 <View style={styles.ButtonRoll}>
-                  <Text style={styles.ButtonText}>Roll for Initiative!</Text>
+                  <Text style={styles.rollButtonText}>Roll for Initiative</Text>
                 </View>
               </TouchableOpacity>
               <TouchableNativeFeedback
+                style={styles.headerButton}
                 onPressOut={() => this.state.highlightIndex == null ? null : this.setState({
-                  highlightIndex:  this.state.highlightIndex >= sortedInitiates.length ? 0: ++this.state.highlightIndex
+                  highlightIndex: this.state.highlightIndex >= sortedInitiates.length ? 0 : ++this.state.highlightIndex
                 })}
               >
-              <Image
-                style={{ height: 64, width: 64 }}
-                source={this.state.highlightIndex == null ? require("../../images/d20.png") : require("../../images/rightArrow.png")} />
+                <Image
+                  style={{ height: 64, width: 64 }}
+                  source={this.state.highlightIndex == null ? require("../../images/d20.png") : require("../../images/rightArrow.png")} />
               </TouchableNativeFeedback>
             </View>
           </View>
-          
+
         </View>
-        <View style={{alignItems: 'center'}} >
+        <View style={{ alignItems: 'center' }} >
           <AdMobBanner
             adSize="fullBanner"
             adUnitID="ca-app-pub-3940256099942544/6300978111"
@@ -127,7 +129,7 @@ class Home extends Component {
         </View>
       </Drawer>
     );
-  } 
+  }
 }
 
 const mapStateToProps = (state) => {
