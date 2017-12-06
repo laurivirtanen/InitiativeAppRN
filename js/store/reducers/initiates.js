@@ -26,6 +26,10 @@ export default (state = [], action) => {
       item.id = index;
       return item;
     });
+  case "CLEAR_LIST":
+    this.setState({state: []});
+    return state;
+
 
   case "UPDATE_INITIATE":
     return state.map( (item, index) => {

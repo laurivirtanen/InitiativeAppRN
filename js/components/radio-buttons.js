@@ -41,7 +41,6 @@ export default class RadioButtonGroup extends Component {
         return [style, styles.radioLast];
       }
       return style;
-      
     }
   
     render() {
@@ -49,7 +48,6 @@ export default class RadioButtonGroup extends Component {
         <View style={{flexDirection: "row"}}>
           {this.props.buttonNames.map((button, index)=> {
             // console.log(this.state.chosen);
-            
             return (
               <TouchableWithoutFeedback
                 key={index}

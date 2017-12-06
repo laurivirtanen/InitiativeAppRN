@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text, AsyncStorage } from 'react-native'
+import { View, Text, AsyncStorage, ImageBackground } from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 import * as Actions from '../actions/initiates'
 import * as TmplActions from '../actions/templates'
+
 
 let timer;
 
@@ -38,9 +39,8 @@ class LoadingScreen extends Component {
     
     render() {
         return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text>Loading...</Text>
-            </View>
+            <ImageBackground source={require("../../images/loading2.png")} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            </ImageBackground>
         )
     }
 }

@@ -4,8 +4,20 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
-
+        <item name="colorAccent">@color/primaryDarkColor</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>
         <!-- Customize your theme here. -->
+        
+    </style>
+    
+    <style name="SpinnerItem" parent="Theme.AppCompat.Light.NoActionBar">>4
+        <item name="android:textSize">18dp</item>
+    </style>
+        <style name="SpinnerDropDownItem" parent="Theme.AppCompat.Light.NoActionBar">>
+        <item name="android:textColor">@color/dndTextColor</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:gravity">center</item>
     </style>
 
 </resources>

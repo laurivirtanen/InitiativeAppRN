@@ -47,3 +47,9 @@ export function SET_FROM_TEMPLATE(items) {
     items: items
   };
 }
+
+export function CLEAR_LIST() {
+  return {
+    type: "CLEAR_LIST"
+  };
+} 

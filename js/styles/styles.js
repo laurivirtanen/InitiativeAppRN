@@ -88,8 +88,9 @@ export const styles = StyleSheet.create({
 
   headerButton: {
     margin: 0,
-    backgroundColor: secondaryColor,
+    backgroundColor: primaryColor,
     alignContent: 'center',
+    height:'100%'
   },
   headerText: {
     flexGrow: 2,
@@ -103,7 +104,8 @@ export const styles = StyleSheet.create({
     fontSize: 36,
     textAlign: 'center',
     textAlignVertical: 'center',
-    fontFamily: 'MrEavesSmallCaps',
+    fontFamily: 'Bookinsanity',
+    
   },
 
 
@@ -210,8 +212,10 @@ export const styles = StyleSheet.create({
   },
   ButtonSecondary: {
     padding: 16,
-    marginLeft: 8,
-    borderRadius: 8,
+    borderRadius: 2,
+    elevation: 3,
+    backgroundColor:secondaryLightColor,
+    margin:2
   },
   ButtonRoll: {
     backgroundColor: primaryColor,
@@ -229,7 +233,11 @@ export const styles = StyleSheet.create({
   },
 
   ButtonTextSecondary: {
-    color: secondaryColor
+    color: primaryTextColor,
+    fontFamily:'ScalySansCaps',
+    textAlign:'center',
+    textAlignVertical:'center',
+    fontSize:16
   },
 
 
@@ -240,9 +248,17 @@ export const styles = StyleSheet.create({
   },
   drawerHeaderContainer: {
     height: 100,
-    backgroundColor: secondaryLightColor
+    backgroundColor: secondaryDarkColor,
+    elevation: 10,
   },
-
+  drawerHeaderText:{
+    backgroundColor: secondaryColor,
+    textShadowColor: primaryDarkColor,
+    textShadowOffset: {
+      width: 1,
+      height: 1
+    },
+  },
   //home
   mainContainer: {
     flex: 1,

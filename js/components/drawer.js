@@ -55,34 +55,40 @@ class Drawer extends Component {
   closeDrawer = () => {
     this.drawer.closeDrawer();
   }
+  clearInitiateList = () => {
+    console.log("Clearing the initiate list");
+    this.setState({ showModal: true, action: 'clear' });
+  }
 
   render() {
     const drawerView = (
       <View style={styles.drawerContainer}>
-        <View style={styles.drawerHeaderContainer}></View>
+        <View style={[styles.drawerHeaderContainer,{marginBottom:2}]}>
+        <Text style={[styles.headerText,styles.drawerHeaderText]}>Templates</Text>
+        </View>
         <TouchableNativeFeedback
           onPressOut={this.saveTemplate} >
           <View style={styles.ButtonSecondary}>
             <Text style={styles.ButtonTextSecondary}>Save as template</Text>
           </View>
         </TouchableNativeFeedback>
-        <View style={{borderTopWidth: 1, borderBottomWidth: 1}}>
+        <View style={{ elevation: 3}}>
           <Picker 
             ref={(templatePicker) => this.templatePicker = templatePicker} 
             enabled={this.props.templates.length < 1 ? false : true}
-            style={{marginLeft: 8}}
+            style={{ marginLeft: 8, elevation: 3}}
             mode="dropdown"
             prompt="Templates"
             selectedValue={this.state.selectedTemplate}
             onValueChange={item => this.changeTemplate(item)} >
             {this.props.templates.length < 1 ? <Picker.Item label="None" /> : this.props.templates.map((item, index) => {
               return (
-                <Picker.Item key={index} label={item.name} value={index} />
+                <Picker.Item style={{borderBottomWidth:2, fontFamily: 'ScalySansCaps'}} key={index} label={item.name} value={index} />
               );
             })}
           </Picker>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'column'}}>
           <TouchableNativeFeedback
             onPressOut={this.loadTemplate} >
             <View style={styles.ButtonSecondary}>
@@ -93,6 +99,12 @@ class Drawer extends Component {
             onPressOut={this.deleteTemplate} >
             <View style={styles.ButtonSecondary}>
               <Text style={styles.ButtonTextSecondary}>Delete</Text>
+            </View>
+          </TouchableNativeFeedback>
+          <TouchableNativeFeedback
+            onPressOut={this.clearInitiateList} >
+            <View style={styles.ButtonSecondary}>
+              <Text style={styles.ButtonTextSecondary}>Clear</Text>
             </View>
           </TouchableNativeFeedback>
         </View>

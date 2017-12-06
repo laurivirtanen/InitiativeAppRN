@@ -8,4 +8,5 @@
   <color name="secondaryDarkColor">#494949</color>
   <color name="primaryTextColor">#ffffff</color>
   <color name="secondaryTextColor">#ffffff</color>
+  <color name="dndTextColor">#58170D</color>
 </resources>

@@ -24,6 +24,11 @@ class TmplModal extends Component {
         this.props.toggleVisibility();
         this.props.closeDrawer();
     }
+    clearList = () => {
+        this.props.dispatch(InitActions.CLEAR_LIST());
+        this.props.toggleVisibility();
+        this.props.closeDrawer();
+    }
     exitModal = () => {
         this.props.toggleVisibility();
     }
@@ -31,11 +36,32 @@ class TmplModal extends Component {
         const tmplName = !!this.props.templates[this.props.templateIndex]? this.props.templates[this.props.templateIndex].name : '';
         const ModalView = () => {
             switch(this.props.action) {
+                case 'clear':
+                    return (
+                        <View style={[styles.modalContainer, styles.modalTmplPlugin]}>
+                            <Text style={styles.modalTitle}>Clearing List</Text>
+                            <Text style={styles.modalDescription}>Clearing initiative list. Are you sure you want to proceed?</Text>
+                            <View style={{ flexDirection: 'row', padding: 16, justifyContent: 'center' }}>
+                                <TouchableNativeFeedback
+                                    onPressOut={this.clearList}>
+                                    <View style={styles.ButtonPrimary}>
+                                        <Text style={styles.ButtonText}>Clear list</Text>
+                                    </View>
+                                </TouchableNativeFeedback>
+                                <TouchableOpacity
+                                    onPressOut={this.props.toggleVisibility} >
+                                    <View style={styles.ButtonSecondary}>
+                                        <Text style={styles.ButtonTextSecondary}>Cancel</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    );
                 case 'load':
                     return (
                         <View style={[styles.modalContainer, styles.modalTmplPlugin]}>
                             <Text style={styles.modalTitle}>Loading template</Text>
-                            <Text style={styles.modalDescription}>Loading a template overrides current initiative list. Are you sure you want to proceed?</Text>
+                            <Text style={styles.modalDescription}>Loading <Text style={{fontWeight:'bold'}}>{tmplName}</Text> template overrides current initiative list. Are you sure you want to proceed?</Text>
                             <View style={{flexDirection: 'row', padding: 16, justifyContent: 'center'}}>
                                 <TouchableNativeFeedback
                                     onPressOut={this.loadTemplate}>
@@ -56,7 +82,7 @@ class TmplModal extends Component {
                     return (
                         <View style={[styles.modalContainer, styles.modalTmplPlugin]}>
                         <Text style={styles.modalTitle}>Deleting template</Text>
-                        <Text style={styles.modalDescription}>Deleting template {tmplName}. Are you sure you want to proceed?</Text>
+                            <Text style={styles.modalDescription}>Deleting template <Text style={{ fontWeight: 'bold' }}>{tmplName}</Text>. Are you sure you want to proceed?</Text>
                         <View style={{flexDirection: 'row', padding: 16, justifyContent: 'center'}}>
                             <TouchableNativeFeedback
                                 onPressOut={this.deleteTemplate}>
