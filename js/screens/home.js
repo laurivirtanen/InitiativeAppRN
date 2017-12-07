@@ -90,30 +90,30 @@ class Home extends Component {
             </View>
             <View style={[styles.headerContainer, { bottom: 0, display: 'flex' }]}>
               <TouchableOpacity
-                style={[styles.headerButton, { flexGrow:1}]}
+                style={[styles.headerButton, { left: 0}]}
                 onPress={() => this.state.highlightIndex == null ? null : this.setState({
                   highlightIndex: this.state.highlightIndex <= 0 ? this.state.highlightIndex = 0 : --this.state.highlightIndex
                 })}
               >
                 <Image
-                  style={[styles.headerButton,{height:64,width:64}]}
+                  style={[styles.headerButton, { height: 56, width: 56, margin:2}]}
                   source={this.state.highlightIndex == null ? require("../../images/d20s.png") : require("../../images/leftArrow.png")} />
               </TouchableOpacity>
 
               <TouchableOpacity
                 onPressOut={() => this.props.dispatch(Actions.ROLL_INITIATIVES(), this.state.highlightIndex = 0)}>
-                <View style={[styles.ButtonRoll,{flexGrow:5}]}>
+                <View style={[styles.ButtonRoll, {overflow:'hidden'}]}>
                   <Text style={styles.rollButtonText}>Roll for Initiative</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity
-                style={[styles.headerButton, { flexGrow: 1 }]}
+                style={[styles.headerButton, { right: 0  }]}
                 onPressOut={() => this.state.highlightIndex == null ? null : this.setState({
                   highlightIndex: this.state.highlightIndex >= sortedInitiates.length ? 0 : ++this.state.highlightIndex
                 })}
               >
                 <Image
-                  style={[styles.headerButton, { height: 64, width: 64 }]}
+                  style={[styles.headerButton, { height: 56, width: 56,margin:2 }]}
                   source={this.state.highlightIndex == null ? require("../../images/d20s.png") : require("../../images/rightArrow.png")} />
               </TouchableOpacity>
             </View>

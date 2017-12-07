@@ -23,7 +23,9 @@ export default class Header extends Component {
             source={require("../../images/hamburger.png")} />
           {/* <Text style={styles.headerButtonText}>List</Text> */}
         </TouchableNativeFeedback>
-        <Text style={styles.headerText}>DnD Tracker</Text>
+        <View style={{maxWidth:'70%', overflow:'hidden'}}>
+          <Text style={styles.headerText}>DnD Tracker</Text>
+        </View>
         <TouchableNativeFeedback
           style={styles.headerButton}
           background={TouchableNativeFeedback.Ripple('white')}

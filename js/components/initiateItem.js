@@ -56,7 +56,7 @@ const InitiateItem = (props) => {
 
         <Picker
           selectedValue={initiate.adv}
-          style={{ flex: 2, color: 'white' }}
+          style={{ flex: 2, color: 'black' }}
           onValueChange={(item) => {
             dispatch(
               UPDATE_INITIATE(initiate.id, { adv: item })

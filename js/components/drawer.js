@@ -64,7 +64,7 @@ class Drawer extends Component {
     const drawerView = (
       <View style={styles.drawerContainer}>
         <View style={[styles.drawerHeaderContainer,{marginBottom:2}]}>
-        <Text style={[styles.headerText,styles.drawerHeaderText]}>Templates</Text>
+        < Text style={[styles.headerText,styles.drawerHeaderText]}>Templates</Text>
         </View>
         <TouchableNativeFeedback
           onPressOut={this.saveTemplate} >
@@ -72,21 +72,22 @@ class Drawer extends Component {
             <Text style={styles.ButtonTextSecondary}>Save as template</Text>
           </View>
         </TouchableNativeFeedback>
-        <View style={{ elevation: 3}}>
+        <View style={[styles.ButtonSecondary,{padding:4}]}>
+          {/* Style Picker in android/app/src/values/styles.xml */}
           <Picker 
             ref={(templatePicker) => this.templatePicker = templatePicker} 
             enabled={this.props.templates.length < 1 ? false : true}
-            style={{ marginLeft: 8, elevation: 3}}
+            style={{color: 'white'}}
             mode="dropdown"
             prompt="Templates"
             selectedValue={this.state.selectedTemplate}
             onValueChange={item => this.changeTemplate(item)} >
             {this.props.templates.length < 1 ? <Picker.Item label="None" /> : this.props.templates.map((item, index) => {
               return (
-                <Picker.Item style={{borderBottomWidth:2, fontFamily: 'ScalySansCaps'}} key={index} label={item.name} value={index} />
+                <Picker.Item key={index} label={item.name} value={index} />
               );
-            })}
-          </Picker>
+             })}
+            </Picker>
         </View>
         <View style={{flexDirection: 'column'}}>
           <TouchableNativeFeedback

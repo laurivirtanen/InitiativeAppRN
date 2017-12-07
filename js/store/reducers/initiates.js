@@ -26,8 +26,9 @@ export default (state = [], action) => {
       item.id = index;
       return item;
     });
+
   case "CLEAR_LIST":
-    this.setState({state: []});
+    state=[];
     return state;
 
 

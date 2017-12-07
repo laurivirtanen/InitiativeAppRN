@@ -263,7 +263,8 @@ export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: secondaryLightColor
+    backgroundColor: secondaryLightColor,
+    maxWidth: '100%'
   },
 
   rollButtonText: {
