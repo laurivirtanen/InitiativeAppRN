@@ -64,7 +64,7 @@ class Drawer extends Component {
     const drawerView = (
       <View style={styles.drawerContainer}>
         <View style={[styles.drawerHeaderContainer,{marginBottom:2}]}>
-        < Text style={[styles.headerText,styles.drawerHeaderText]}>Templates</Text>
+          <Text style={[styles.headerText,styles.drawerHeaderText]}>Templates</Text>
         </View>
         <TouchableNativeFeedback
           onPressOut={this.saveTemplate} >
@@ -89,7 +89,6 @@ class Drawer extends Component {
              })}
             </Picker>
         </View>
-        <View style={{flexDirection: 'column'}}>
           <TouchableNativeFeedback
             onPressOut={this.loadTemplate} >
             <View style={styles.ButtonSecondary}>
@@ -109,7 +108,6 @@ class Drawer extends Component {
             </View>
           </TouchableNativeFeedback>
         </View>
-      </View>
     );
     return(
       <DrawerLayoutAndroid

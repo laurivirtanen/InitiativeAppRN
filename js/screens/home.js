@@ -72,17 +72,33 @@ class Home extends Component {
   changeInitiativeManually = (value, index) => {
     let obj = { init: Number(value) }
     this.props.dispatch(Actions.UPDATE_INITIATE(index, obj));
+  }
 
+  changeFocusedInitiative = (listLength,increment,scrollView) => {
+    console.log("Next Initiative");
+    try{
+      if (this.state.highlightIndex+increment >= listLength || this.state.highlightIndex+increment < 0){
+        console.log(listLength+ " : "+this.state.highlightIndex);
+        this.setState({ highlightIndex: 0 });
+        scrollView.scrollTo({ x: 0, y: 0, animated: true });
+      }else{
+        this.setState({ highlightIndex: this.state.highlightIndex + increment });
+        scrollView.scrollTo({ x: 0, y: (this.state.highlightIndex*40)-80, animated: true });
+      }
+    }catch(error){
+      console.log(error);
+    }
   }
 
   render() {
     const sortedInitiates = this.sortInitiates([...this.props.initiates]);
+    
     return (
       <Drawer showModal={this.state.showModal} toggleModalVisibility={this.toggleModalVisibility}>
         <View style={styles.mainContainer}>
           <View style={{ flex: 1, flexDirection: "column" }}>
             <View style={{ flex: 5 }}>
-              <ScrollView >
+              <ScrollView ref={ref=>this.scrollView=ref}>
                 {(sortedInitiates.length > 0) ? sortedInitiates.map((item, index) => {
                   return <InitiateItem initiate={item} key={item.id} initiative={item.init} highlight={index == this.state.highlightIndex ? true : false} changeInitiative={this.changeInitiativeManually} /> // prop initiative is necessary to force update on InitiateItem!
                 }) : null}
@@ -91,10 +107,7 @@ class Home extends Component {
             <View style={[styles.headerContainer, { bottom: 0, display: 'flex' }]}>
               <TouchableOpacity
                 style={[styles.headerButton, { left: 0}]}
-                onPress={() => this.state.highlightIndex == null ? null : this.setState({
-                  highlightIndex: this.state.highlightIndex <= 0 ? this.state.highlightIndex = 0 : --this.state.highlightIndex
-                })}
-              >
+                onPress={() => this.changeFocusedInitiative(sortedInitiates.length,-1,this.scrollView)}>
                 <Image
                   style={[styles.headerButton, { height: 56, width: 56, margin:2}]}
                   source={this.state.highlightIndex == null ? require("../../images/d20s.png") : require("../../images/leftArrow.png")} />
@@ -108,10 +121,7 @@ class Home extends Component {
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.headerButton, { right: 0  }]}
-                onPressOut={() => this.state.highlightIndex == null ? null : this.setState({
-                  highlightIndex: this.state.highlightIndex >= sortedInitiates.length ? 0 : ++this.state.highlightIndex
-                })}
-              >
+                onPressOut={() => this.changeFocusedInitiative(sortedInitiates.length,1,this.scrollView)}>
                 <Image
                   style={[styles.headerButton, { height: 56, width: 56,margin:2 }]}
                   source={this.state.highlightIndex == null ? require("../../images/d20s.png") : require("../../images/rightArrow.png")} />

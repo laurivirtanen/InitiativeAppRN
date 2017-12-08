@@ -157,12 +157,14 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   modalTitle: {
-    backgroundColor: secondaryLightColor,
-    fontSize: 20,
+    backgroundColor: secondaryColor,
+    fontSize: 30,
     padding: 16,
+    color: primaryTextColor,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
-    fontWeight: 'bold',
+    fontFamily: 'Bookinsanity',
+    elevation: 10,
   },
   modalDescription: {
     padding: 16
@@ -179,6 +181,7 @@ export const styles = StyleSheet.create({
   modalNumberInput: {
     flex: 1,
     right: 0,
+    fontFamily: 'ScalySans',
     textAlign: 'center',
     textAlignVertical: 'bottom',
     fontWeight: 'bold',
@@ -207,7 +210,7 @@ export const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: secondaryColor,
     marginLeft: 8,
-    borderRadius: 8,
+    borderRadius: 2,
     borderColor: secondaryLightColor
   },
   ButtonSecondary: {
@@ -215,7 +218,7 @@ export const styles = StyleSheet.create({
     borderRadius: 2,
     elevation: 3,
     backgroundColor:secondaryLightColor,
-    margin:2
+    margin:2,
   },
   ButtonRoll: {
     backgroundColor: primaryColor,
@@ -247,7 +250,8 @@ export const styles = StyleSheet.create({
     //backgroundColor: secondaryColor,
   },
   drawerHeaderContainer: {
-    height: 100,
+    flex:1,
+    maxHeight: 100,
     backgroundColor: secondaryDarkColor,
     elevation: 10,
   },
@@ -258,6 +262,8 @@ export const styles = StyleSheet.create({
       width: 1,
       height: 1
     },
+    color: primaryTextColor,
+    fontSize: 30,
   },
   //home
   mainContainer: {

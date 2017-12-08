@@ -43,7 +43,6 @@ const InitiateItem = (props) => {
         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
           <Text style={styles.dropdownText}>Mod:</Text>
           <TextInput
-            underlineColorAndroid="transparent"
             keyboardType="numeric"
             defaultValue={initiate.mod.toString()}
             style={[styles.dropdownText, { flex: 1, textAlign: 'center', color: 'white',  }]}
