@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, TouchableOpacity } from 'react-native'
+import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, TouchableOpacity, ToastAndroid } from 'react-native'
 import { styles } from '../styles/styles'
 import { connect } from 'react-redux'
 import * as InitActions from '../actions/initiates'
@@ -10,22 +10,25 @@ class TmplModal extends Component {
     loadTemplate = () => {
         let newItems = this.props.templates[this.props.templateIndex].values;
         if (!!newItems) {
-          this.props.dispatch(
+        this.props.dispatch(
             InitActions.SET_FROM_TEMPLATE(newItems)
-          );
+        );
         }
+        ToastAndroid.show("Loaded: "+this.props.templates[this.props.templateIndex].name, ToastAndroid.SHORT);
         this.props.toggleVisibility();
         this.props.closeDrawer();
     }
     deleteTemplate = () => {
         this.props.dispatch(
             TmplActions.DELETE_TEMPLATE(this.props.templateIndex)
-        );
+        ); 
+        ToastAndroid.show("Deleted: " + this.props.templates[this.props.templateIndex].name, ToastAndroid.SHORT);
         this.props.toggleVisibility();
         this.props.closeDrawer();
     }
     clearList = () => {
         this.props.dispatch(InitActions.CLEAR_LIST());
+        ToastAndroid.show("Cleared List!", ToastAndroid.SHORT);
         this.props.toggleVisibility();
         this.props.closeDrawer();
     }
@@ -64,7 +67,8 @@ class TmplModal extends Component {
                             <Text style={styles.modalDescription}>Loading <Text style={{fontWeight:'bold'}}>{tmplName}</Text> template overrides current initiative list. Are you sure you want to proceed?</Text>
                             <View style={{flexDirection: 'row', padding: 16, justifyContent: 'center'}}>
                                 <TouchableNativeFeedback
-                                    onPressOut={this.loadTemplate}>
+                                    onPressOut={this.props.templates[this.props.templateIndex] != null ? this.loadTemplate :
+                                        ToastAndroid.show("Unable to load empty template ", ToastAndroid.SHORT)}>
                                     <View style={styles.ButtonPrimary}>
                                         <Text style={styles.ButtonText}>Load template</Text>
                                     </View>
@@ -85,7 +89,8 @@ class TmplModal extends Component {
                             <Text style={styles.modalDescription}>Deleting template <Text style={{ fontWeight: 'bold' }}>{tmplName}</Text>. Are you sure you want to proceed?</Text>
                         <View style={{flexDirection: 'row', padding: 16, justifyContent: 'center'}}>
                             <TouchableNativeFeedback
-                                onPressOut={this.deleteTemplate}>
+                                   onPressOut={this.props.templates[this.props.templateIndex] != null ? this.deleteTemplate :
+                                        ToastAndroid.show("Unable to load delete template ", ToastAndroid.SHORT) }>
                                 <View style={styles.ButtonPrimary}>
                                     <Text style={styles.ButtonText}>Delete template</Text>
                                 </View>

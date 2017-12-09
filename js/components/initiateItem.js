@@ -8,7 +8,8 @@ import {
   Image,
   TextInput,
   Picker,
-  CheckBox
+  CheckBox,
+  ToastAndroid
 } from 'react-native';
 import { UPDATE_INITIATE, REMOVE_INITIATE } from '../actions/initiates';
 import { styles } from '../styles/styles';
@@ -77,7 +78,8 @@ const InitiateItem = (props) => {
 
         <View style={styles.initiateKill}>
           <TouchableOpacity
-            onPress={() => dispatch(REMOVE_INITIATE(initiate.id))} >
+            onPress={() => dispatch(REMOVE_INITIATE(initiate.id),
+              ToastAndroid.show("Removed: " + initiate.name, ToastAndroid.SHORT))}>
             <Image
               style={[...styles.initiateImage, { height: 30, width: 30, marginRight: 10 }]}
               source={require("../../images/remove.png")} />

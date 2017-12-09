@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, StyleSheet } from 'react-native'
+import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, StyleSheet, ToastAndroid } from 'react-native'
 import RadioButtonGroup from './radio-buttons'
 import { styles } from '../styles/styles'
 import { connect } from 'react-redux'
@@ -33,6 +33,7 @@ class AddModal extends Component {
           isPC: this.state.isPC
         })
       );
+      ToastAndroid.show("Added: "+this.state.name, ToastAndroid.SHORT);
       this.setState({
         name: '',
         adv: 'normal',

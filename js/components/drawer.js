@@ -4,7 +4,8 @@ import {
     View,
     Text,
     TouchableNativeFeedback,
-    Picker
+    Picker,
+    ToastAndroid,
 } from 'react-native';
 import AddModal from './add-modal';
 import TmplModal from './tmpl-modal';
@@ -13,7 +14,10 @@ import Header from './header';
 import { styles } from '../styles/styles';
 import { connect } from 'react-redux';
 import * as InitActions from '../actions/initiates';
-import * as TmplActions from '../actions/templates';
+import * as TmplActions from '../actions/templates'; 
+import {
+  AdMobBanner
+} from 'react-native-admob';
 
 
 class Drawer extends Component {
@@ -28,7 +32,7 @@ class Drawer extends Component {
   }
   loadTemplate = () => {
     console.log("Loading template...");
-    this.setState({showModal: true, action: 'load'});
+    this.setState({ showModal: true, action: 'load' });
     /* let newItems = this.props.templates[this.state.selectedTemplate].values;
     if (!!newItems) {
       this.props.dispatch(
@@ -107,6 +111,13 @@ class Drawer extends Component {
               <Text style={styles.ButtonTextSecondary}>Clear</Text>
             </View>
           </TouchableNativeFeedback>
+          <View>
+            <AdMobBanner
+              adSize="mediumRectangle"
+              adUnitID="ca-app-pub-3940256099942544/6300978111"
+              testDevices={[AdMobBanner.simulatorId]}
+              onAdFailedToLoad={error => console.error(error)} />
+          </View>
         </View>
     );
     return(

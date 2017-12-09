@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, StyleSheet, TouchableOpacity } from 'react-native'
+import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, StyleSheet, TouchableOpacity, ToastAndroid } from 'react-native'
 import { styles } from '../styles/styles'
 import { connect } from 'react-redux'
 import * as TmplActions from '../actions/templates'
@@ -12,6 +12,7 @@ class SaveModal extends Component {
             this.props.dispatch(
                 TmplActions.SAVE_TEMPLATE(this.state.nameInput, this.props.initiates)
             );
+            ToastAndroid.show("Saved Template: " + this.state.nameInput, ToastAndroid.SHORT);
             this.setState({nameInput: ''});
             this.props.toggleVisibility();
             this.props.closeDrawer();

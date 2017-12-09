@@ -75,15 +75,17 @@ class Home extends Component {
   }
 
   changeFocusedInitiative = (listLength,increment,scrollView) => {
-    console.log("Next Initiative");
+    console.log("Next Initiative ");
     try{
-      if (this.state.highlightIndex+increment >= listLength || this.state.highlightIndex+increment < 0){
-        console.log(listLength+ " : "+this.state.highlightIndex);
-        this.setState({ highlightIndex: 0 });
-        scrollView.scrollTo({ x: 0, y: 0, animated: true });
-      }else{
-        this.setState({ highlightIndex: this.state.highlightIndex + increment });
-        scrollView.scrollTo({ x: 0, y: (this.state.highlightIndex*40)-80, animated: true });
+      if(this.state.highlightIndex != null){
+        if (this.state.highlightIndex+increment >= listLength || this.state.highlightIndex+increment < 0){
+          console.log(listLength+ " : "+this.state.highlightIndex);
+          this.setState({ highlightIndex: 0 });
+          scrollView.scrollTo({ x: 0, y: 0, animated: true });
+        }else{
+          this.setState({ highlightIndex: this.state.highlightIndex + increment });
+          scrollView.scrollTo({ x: 0, y: (this.state.highlightIndex*40)-80, animated: true });
+          }
       }
     }catch(error){
       console.log(error);
@@ -114,7 +116,7 @@ class Home extends Component {
               </TouchableOpacity>
 
               <TouchableOpacity
-                onPressOut={() => this.props.dispatch(Actions.ROLL_INITIATIVES(), this.state.highlightIndex = 0)}>
+                onPressOut={() => this.props.dispatch(Actions.ROLL_INITIATIVES(), this.state.highlightIndex = 0, this.scrollView.scrollTo({x:0,y:0, animated:true}))}>
                 <View style={[styles.ButtonRoll, {overflow:'hidden'}]}>
                   <Text style={styles.rollButtonText}>Roll for Initiative</Text>
                 </View>

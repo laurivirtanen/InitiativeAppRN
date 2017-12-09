@@ -218,7 +218,7 @@ export const styles = StyleSheet.create({
     borderRadius: 2,
     elevation: 3,
     backgroundColor:secondaryLightColor,
-    margin:2,
+    margin: 2,
   },
   ButtonRoll: {
     backgroundColor: primaryColor,
@@ -252,6 +252,7 @@ export const styles = StyleSheet.create({
   drawerHeaderContainer: {
     flex:1,
     maxHeight: 100,
+    minHeight: 60,
     backgroundColor: secondaryDarkColor,
     elevation: 10,
   },
