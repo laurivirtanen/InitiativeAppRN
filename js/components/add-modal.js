@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, StyleSheet, ToastAndroid } from 'react-native'
+import { Modal, View, Text, TextInput, TouchableWithoutFeedback, TouchableNativeFeedback, StyleSheet, ToastAndroid, Keyboard } from 'react-native'
 import RadioButtonGroup from './radio-buttons'
 import { styles } from '../styles/styles'
 import { connect } from 'react-redux'
@@ -100,6 +100,7 @@ class AddModal extends Component {
       isPC: monster.isPC,
       showSuggestions: false
     });
+    Keyboard.dismiss();
   }
 
   handleRadioChange = () => {
@@ -130,19 +131,12 @@ class AddModal extends Component {
             <TouchableWithoutFeedback onPress={() => { }}>
               <View style={[styles.modalContainer, styles.modalTmplPlugin]}>
                 <Text style={styles.modalTitle}>Add new character</Text>
-                <View style={{ flexDirection: "row", padding: 8}} >
+                <View style={{
+                  flexDirection: "row", padding: 8}} >
                   <View style={{flex:5}}>
                     <Autocomplete
                       inputContainerStyle={styles.modalTextInputContainer}
-                      containerStyle={{
-                          flex: 4,
-                          left: 0,
-                          position: 'absolute',
-                          borderWidth: 0,
-                          right: 0,
-                          top: 0,
-                          zIndex: 144
-                      }}
+                      containerStyle={styles.autoCompleteTextInput}
                       data={data}
                       hideResults={!this.state.showSuggestions}
                       renderTextInput={(props) => (
@@ -156,9 +150,9 @@ class AddModal extends Component {
                       )}
                       renderItem={data => (
                         <TouchableNativeFeedback
-                          onPressOut={() => this.selectFromMonsters(data.index)} >
-                          <View style={{borderBottomWidth: 1}}>
-                            <Text style={{fontSize: 18}}>{data.name}</Text>
+                          onPressOut={() =>  this.selectFromMonsters(data.index)} >
+                          <View style={styles.autoCompleteListContainer}>
+                            <Text style={styles.autoCompleteList}>{data.name}</Text>
                           </View>
                         </TouchableNativeFeedback>
                       )} />
@@ -187,7 +181,7 @@ class AddModal extends Component {
                     background={TouchableNativeFeedback.SelectableBackground()}
                     onPressOut={this.exitModal} >
                     <View
-                      style={styles.ButtonSecondary} >
+                      style={[styles.ButtonSecondary,{elevation:0}]} >
                       <Text style={styles.ButtonTextSecondary}>Cancel</Text>
                     </View>
                   </TouchableNativeFeedback>

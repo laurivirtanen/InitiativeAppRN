@@ -8,29 +8,32 @@ import * as TmplActions from '../actions/templates'
 class TmplModal extends Component {
     
     loadTemplate = () => {
-        let newItems = this.props.templates[this.props.templateIndex].values;
-        if (!!newItems) {
-        this.props.dispatch(
-            InitActions.SET_FROM_TEMPLATE(newItems)
-        );
-        }
-        ToastAndroid.show("Loaded: "+this.props.templates[this.props.templateIndex].name, ToastAndroid.SHORT);
-        this.props.toggleVisibility();
-        this.props.closeDrawer();
+        if (this.props.templates[this.props.templateIndex] != null) {
+            let newItems = this.props.templates[this.props.templateIndex].values;
+            if (!!newItems) {
+            this.props.dispatch(
+                InitActions.SET_FROM_TEMPLATE(newItems)
+            );
+            }
+            ToastAndroid.show("Loaded: "+this.props.templates[this.props.templateIndex].name, ToastAndroid.SHORT);
+            this.props.toggleVisibility();
+            this.props.closeDrawer();
+        } else { ToastAndroid.show("Unable to load empty template ", ToastAndroid.SHORT) }
     }
     deleteTemplate = () => {
-        this.props.dispatch(
-            TmplActions.DELETE_TEMPLATE(this.props.templateIndex)
-        ); 
-        ToastAndroid.show("Deleted: " + this.props.templates[this.props.templateIndex].name, ToastAndroid.SHORT);
-        this.props.toggleVisibility();
-        this.props.closeDrawer();
+        if (this.props.templates[this.props.templateIndex] != null){
+            this.props.dispatch(
+                TmplActions.DELETE_TEMPLATE(this.props.templateIndex)
+            ); 
+            ToastAndroid.show("Deleted: " + this.props.templates[this.props.templateIndex].name, ToastAndroid.SHORT);
+            this.props.toggleVisibility();
+            this.props.closeDrawer();
+        } else {ToastAndroid.show("Unable to delete empty template ", ToastAndroid.SHORT)}
     }
     clearList = () => {
         this.props.dispatch(InitActions.CLEAR_LIST());
         ToastAndroid.show("Cleared List!", ToastAndroid.SHORT);
         this.props.toggleVisibility();
-        this.props.closeDrawer();
     }
     exitModal = () => {
         this.props.toggleVisibility();
@@ -67,8 +70,7 @@ class TmplModal extends Component {
                             <Text style={styles.modalDescription}>Loading <Text style={{fontWeight:'bold'}}>{tmplName}</Text> template overrides current initiative list. Are you sure you want to proceed?</Text>
                             <View style={{flexDirection: 'row', padding: 16, justifyContent: 'center'}}>
                                 <TouchableNativeFeedback
-                                    onPressOut={this.props.templates[this.props.templateIndex] != null ? this.loadTemplate :
-                                        ToastAndroid.show("Unable to load empty template ", ToastAndroid.SHORT)}>
+                                    onPressOut={this.loadTemplate}>
                                     <View style={styles.ButtonPrimary}>
                                         <Text style={styles.ButtonText}>Load template</Text>
                                     </View>
@@ -90,7 +92,7 @@ class TmplModal extends Component {
                         <View style={{flexDirection: 'row', padding: 16, justifyContent: 'center'}}>
                             <TouchableNativeFeedback
                                    onPressOut={this.props.templates[this.props.templateIndex] != null ? this.deleteTemplate :
-                                        ToastAndroid.show("Unable to load delete template ", ToastAndroid.SHORT) }>
+                                        ToastAndroid.show("Unable to delete empty template", ToastAndroid.SHORT) }>
                                 <View style={styles.ButtonPrimary}>
                                     <Text style={styles.ButtonText}>Delete template</Text>
                                 </View>

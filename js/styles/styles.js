@@ -10,8 +10,6 @@ const primaryTextColor = '#ffffff';
 const secondaryTextColor = '#ffffff';
 const dndTextColor = "#58170D";
 export const styles = StyleSheet.create({
-
-
   // List Printing
   listContainer: {
     display: 'flex',
@@ -117,7 +115,8 @@ export const styles = StyleSheet.create({
     marginTop: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
+    flex: 1,
+    elevation: 0
   },
   radioChosen: {
     backgroundColor: secondaryColor,
@@ -126,7 +125,7 @@ export const styles = StyleSheet.create({
     marginTop: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
+    flex: 1,
   },
   radioFirst: {
     borderTopLeftRadius: 8,
@@ -169,6 +168,29 @@ export const styles = StyleSheet.create({
   modalDescription: {
     padding: 16
   },
+  autoCompleteTextInput:{
+    flex: 4,
+    left: 0,
+    position: 'absolute',
+    borderWidth: 0,
+    right: 0,
+    top: 0,
+    zIndex: 144,
+  },
+  autoCompleteList:{
+    fontSize: 18,
+    fontFamily: 'ScalySans',
+    textAlignVertical: 'center',
+    height: '100%',
+    backgroundColor: secondaryDarkColor,
+    color: primaryTextColor,
+
+  },
+  autoCompleteListContainer:{
+    borderBottomWidth: 1,
+    height: 40,
+  },
+
   modalTextInput: {
     fontSize: 20,
     textAlignVertical: 'bottom',
@@ -180,7 +202,6 @@ export const styles = StyleSheet.create({
   },
   modalNumberInput: {
     flex: 1,
-    right: 0,
     fontFamily: 'ScalySans',
     textAlign: 'center',
     textAlignVertical: 'bottom',
@@ -191,7 +212,8 @@ export const styles = StyleSheet.create({
   modalRadioContainer: {
     display: 'flex',
     alignContent: 'center',
-    padding: 16
+    padding: 16,
+     
   },
 
   modalAddCharacter: {
@@ -209,16 +231,16 @@ export const styles = StyleSheet.create({
   ButtonPrimary: {
     padding: 16,
     backgroundColor: secondaryColor,
-    marginLeft: 8,
+    margin:2,
     borderRadius: 2,
     borderColor: secondaryLightColor
   },
   ButtonSecondary: {
     padding: 16,
     borderRadius: 2,
-    elevation: 3,
     backgroundColor:secondaryLightColor,
     margin: 2,
+    elevation: 3,
   },
   ButtonRoll: {
     backgroundColor: primaryColor,

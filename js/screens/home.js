@@ -11,7 +11,8 @@ import {
   TouchableNativeFeedback,
   ScrollView,
   Image,
-  AsyncStorage
+  AsyncStorage,
+  Alert
 } from 'react-native';
 import {
   AdMobBanner
@@ -37,6 +38,7 @@ componentDidMount() {
   this.props.navigation.setParams({wantedAction: wantedFunction})
 }
 */
+
 
 class Home extends Component {
   static navigationOptions = { header: null } // No header displayed
@@ -74,22 +76,43 @@ class Home extends Component {
     this.props.dispatch(Actions.UPDATE_INITIATE(index, obj));
   }
 
-  changeFocusedInitiative = (listLength,increment,scrollView) => {
+
+  changeFocusedInitiative = (listLength,increment) => {
     console.log("Next Initiative ");
     try{
       if(this.state.highlightIndex != null){
         if (this.state.highlightIndex+increment >= listLength || this.state.highlightIndex+increment < 0){
-          console.log(listLength+ " : "+this.state.highlightIndex);
           this.setState({ highlightIndex: 0 });
-          scrollView.scrollTo({ x: 0, y: 0, animated: true });
+          this.scrollView.scrollTo({ x: 0, y: 0, animated: true });
         }else{
-          this.setState({ highlightIndex: this.state.highlightIndex + increment });
-          scrollView.scrollTo({ x: 0, y: (this.state.highlightIndex*40)-80, animated: true });
+          this.setState({ highlightIndex: this.state.highlightIndex+increment});
+          this.scrollView.scrollTo({ x: 0, y: (this.state.highlightIndex*50)-153, animated: true });
+          console.log(this.state.highlightIndex*50);
+          
           }
       }
     }catch(error){
       console.log(error);
     }
+  }
+
+  rollButton = (hlindex) => {
+    console.log(hlindex+" " + this.state.highlightIndex);
+    if(hlindex==null){
+      this.props.dispatch(Actions.ROLL_INITIATIVES());
+      this.setState({ highlightIndex: 0 });
+      this.scrollView.scrollTo({ x: 0, y: 0, animated: true });
+    }else {
+      Alert.alert(
+        'Rerolling',
+        'Do you want to reroll again?',
+        [
+          { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+          { text: 'OK', onPress: () => this.rollButton(null)},
+        ],
+      );
+    }
+
   }
 
   render() {
@@ -109,21 +132,21 @@ class Home extends Component {
             <View style={[styles.headerContainer, { bottom: 0, display: 'flex' }]}>
               <TouchableOpacity
                 style={[styles.headerButton, { left: 0}]}
-                onPress={() => this.changeFocusedInitiative(sortedInitiates.length,-1,this.scrollView)}>
+                onPress={() => this.changeFocusedInitiative(sortedInitiates.length,-1)}>
                 <Image
                   style={[styles.headerButton, { height: 56, width: 56, margin:2}]}
                   source={this.state.highlightIndex == null ? require("../../images/d20s.png") : require("../../images/leftArrow.png")} />
               </TouchableOpacity>
 
               <TouchableOpacity
-                onPressOut={() => this.props.dispatch(Actions.ROLL_INITIATIVES(), this.state.highlightIndex = 0, this.scrollView.scrollTo({x:0,y:0, animated:true}))}>
+                onPressOut={() => this.rollButton(this.state.highlightIndex)}>
                 <View style={[styles.ButtonRoll, {overflow:'hidden'}]}>
                   <Text style={styles.rollButtonText}>Roll for Initiative</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.headerButton, { right: 0  }]}
-                onPressOut={() => this.changeFocusedInitiative(sortedInitiates.length,1,this.scrollView)}>
+                onPressOut={() => this.changeFocusedInitiative(sortedInitiates.length,1)}>
                 <Image
                   style={[styles.headerButton, { height: 56, width: 56,margin:2 }]}
                   source={this.state.highlightIndex == null ? require("../../images/d20s.png") : require("../../images/rightArrow.png")} />
