@@ -78,7 +78,7 @@ class Home extends Component {
 
 
   changeFocusedInitiative = (listLength,increment) => {
-    console.log("Next Initiative ");
+    //console.log("Next Initiative ");
     try{
       if(this.state.highlightIndex != null){
         if (this.state.highlightIndex+increment >= listLength || this.state.highlightIndex+increment < 0){
@@ -87,7 +87,7 @@ class Home extends Component {
         }else{
           this.setState({ highlightIndex: this.state.highlightIndex+increment});
           this.scrollView.scrollTo({ x: 0, y: (this.state.highlightIndex*50)-153, animated: true });
-          console.log(this.state.highlightIndex*50);
+          //console.log(this.state.highlightIndex*50);
           
           }
       }
@@ -97,7 +97,7 @@ class Home extends Component {
   }
 
   rollButton = (hlindex) => {
-    console.log(hlindex+" " + this.state.highlightIndex);
+    //console.log(hlindex+" " + this.state.highlightIndex);
     if(hlindex==null){
       this.props.dispatch(Actions.ROLL_INITIATIVES());
       this.setState({ highlightIndex: 0 });
@@ -132,6 +132,7 @@ class Home extends Component {
             <View style={[styles.headerContainer, { bottom: 0, display: 'flex' }]}>
               <TouchableOpacity
                 style={[styles.headerButton, { left: 0}]}
+                disabled={this.state.highlightIndex != null ? false : true}
                 onPress={() => this.changeFocusedInitiative(sortedInitiates.length,-1)}>
                 <Image
                   style={[styles.headerButton, { height: 56, width: 56, margin:2}]}
@@ -139,6 +140,7 @@ class Home extends Component {
               </TouchableOpacity>
 
               <TouchableOpacity
+                disabled={this.props.initiates.length > 0? false : true}
                 onPressOut={() => this.rollButton(this.state.highlightIndex)}>
                 <View style={[styles.ButtonRoll, {overflow:'hidden'}]}>
                   <Text style={styles.rollButtonText}>Roll for Initiative</Text>
@@ -146,6 +148,7 @@ class Home extends Component {
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.headerButton, { right: 0  }]}
+                disabled={this.state.highlightIndex != null ? false : true}
                 onPressOut={() => this.changeFocusedInitiative(sortedInitiates.length,1)}>
                 <Image
                   style={[styles.headerButton, { height: 56, width: 56,margin:2 }]}

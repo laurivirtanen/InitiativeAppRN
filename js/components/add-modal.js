@@ -11,7 +11,7 @@ this is done to accomplish the click-outside-modal-to-close.
 Basically the first Touchable fills the whole screen,
 and the second has a null onPress-function, that fills the actual modal.
 */
-const buttons = ["Advantage", "Normal", "Disadvantage"];
+const buttons = ["Advantage", "Normal", "Disadv."];
 
 class AddModal extends Component {
   state = {
