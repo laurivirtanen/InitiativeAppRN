@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, AsyncStorage, ImageBackground } from 'react-native'
+import { View, Text, AsyncStorage, ImageBackground, ToastAndroid } from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 import * as Actions from '../actions/initiates'
@@ -22,8 +22,12 @@ class LoadingScreen extends Component {
             this.props.dispatch(
             Actions.LOAD_MONSTERS(monsters)
             );
+        }).catch(err => {
+            console.log(err);
+            ToastAndroid.show("Could not connect to database", ToastAndroid.SHORT);
+        }).finally(() => {
             this.props.dispatch(NavigationActions.navigate({ routeName: 'Main' }));
-        }).catch(err => console.log(err));
+        });
         try {
             let templatesRaw = await AsyncStorage.getItem("InitiativeTemplates");
             let templates = JSON.parse(templatesRaw);
